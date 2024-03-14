@@ -15,8 +15,9 @@ TRIGGER_DATE = (
 
 # Create your models here.
 
+
+# The model to add a trigger 
 class Trigger(models.Model): 
-    trigger_id = models.AutoField(primary_key=True)
     stock_name = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     trigger_date = models.IntegerField (choices=TRIGGER_DATE, default=0)
@@ -24,3 +25,21 @@ class Trigger(models.Model):
     website_link = models.CharField(max_length=200, unique=True)
     pr_link = models.CharField(max_length=200)
     created_on = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ["-created_on"]
+
+    def __str__(self):
+        return self.stock_name
+
+# The model for comments 
+class Comment(models.Model):
+    trigger = models.ForeignKey(
+        Trigger, on_delete=models.CASCADE, related_name="comments")
+    author = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="commenter")
+    body = models.TextField()
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ["-created_on"]
