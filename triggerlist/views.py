@@ -5,5 +5,5 @@ from .models import Trigger
 # Create your views here.
 
 class TriggerList(generic.ListView):
-    queryset = Post.objects.all()
+    queryset = Trigger.objects.all()
     template_name = "trigger_list.html"
