@@ -1,7 +1,9 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.views import generic
+from .models import Trigger
 
 # Create your views here.
 
-def my_triggerlist(request):
-    return HttpResponse("Hello, triggers!")
+class TriggerList(generic.ListView):
+    queryset = Post.objects.all()
+    template_name = "trigger_list.html"

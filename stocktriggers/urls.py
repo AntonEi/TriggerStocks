@@ -15,10 +15,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from triggerlist.views import my_triggerlist
+from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('triggerlist/', my_triggerlist, name='triggerlist'),
+    path("", include("triggerlist.urls"), name="triggerlist-urls"),
 ]
