@@ -7,10 +7,14 @@ TRIGGER_DATE = (
     (2, "2024-Q2"),
     (3, "2024-Q3"),
     (4, "2024-Q4"),
-    (5, "2025-Q1"),
-    (6, "2025-Q2"),
-    (7, "2025-Q3"),
-    (8, "2025-Q4"),
+    (5, "2024-H1"),
+    (6, "2024-H2"),
+    (7, "2025-Q1"),
+    (8, "2025-Q2"),
+    (9, "2025-Q3"),
+    (10, "2025-Q4"),
+    (11, "2025-H1"),
+    (12, "2025-H2"),
 )
 
 # Create your models here.
@@ -21,8 +25,9 @@ class Trigger(models.Model):
     stock_name = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     trigger_date = models.IntegerField (choices=TRIGGER_DATE, default=0)
+    trigger_headline = models.CharField(max_length=200)
     summary = models.TextField()
-    website_link = models.CharField(max_length=200, unique=True)
+    website_link = models.CharField(max_length=200,)
     pr_link = models.CharField(max_length=200)
     created_on = models.DateTimeField(auto_now_add=True)
 

@@ -1,5 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+/*font-family: "Quicksand", sans-serif;*/
+/*font-family: "Raleway", sans-serif;*/
+
+
 body {
-    background-color: pink;
+    background-color: #3e4a55;
+    font-family: "Quicksand", sans-serif;
 }
 
 h2 {
@@ -9,16 +16,57 @@ h2 {
 .dark-nav {
     background-color: rgba(3, 4, 3, 0.81);
 }
+/* For the sort field (stocks, trigger-date...) */
+.order {
+  font-weight: 700;
+  font-size: 20px;
+  color: white;
+}
+.order-left {
+  margin-left: 12px;
+}
+
+.icon-style {
+  vertical-align: middle; /* Align icons vertically in the middle */
+  margin-bottom: 3px; /* Add some bottom margin to move the icons down */
+  color: white; /* Set the color of the icons to white */
+  margin-right: 3px;
+}
 
 .trigger-info {
   display: grid;
   grid-template-columns: 21% 15% 21% 37%; /* Each column occupies 25% of the container width */
   width: 100%;
+  color: black;
 }
 
-.stock-name,
-.trigger-date,
-.trigger-created,
-.trigger-summary {
-  background-color: #ccc; /* just for demonstration */
+.container-list {
+  width: 100%; /* Full width by default */
+  margin: 0 auto; /* Center the container horizontally */
+  max-width: 1626px; /* Set maximum width for the container */
+}
+
+.trigger-info {
+  font-family: "Nunito", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.collapsible-header {
+  background-color: #dce1e5 !important;
+  margin-top: 10px;
+}
+
+.collapsible {
+  border: none !important; /* Remove border with !important */
+  margin: 0 !important; /* Reset margin with !important */
+  -webkit-box-shadow: none !important; /* Override the box shadow and ensure it takes precedence */
+  box-shadow: none !important; /* Override for other browsers */
+}
+
+
+@media (min-width: 1626px) {
+  .container-list {
+    padding: 0 20px; /* Adjust padding for smaller screens */
+  }
 }

@@ -1,30 +1,33 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="container-list">
+  <div class="trigger-info">
+    <span class="order order-left"><i class="material-icons icon-style">work</i>Stock Name</span>
+    <span class="order"><i class="material-icons icon-style">trending_up</i>Trigger-date</span>
+    <span class="order"><i class="material-icons icon-style">event_available</i>Added</span>
+    <span class="order"><i class="material-icons icon-style">description</i>Trigger</span>
+  </div>
+</div>
+<div class="container-list">
+  <ul class="collapsible expandable">
+    {% for trigger in trigger_list %}
 
-<h2>hey</h2>
-<ul class="collapsible expandable">
-  <li>
+    <li>
+      <div class="collapsible-header list-bg">
 
-    <div class="collapsible-header">
-      Aktiens namn, trigger-dt
-    </div>
-  </li>
-  {% for trigger in trigger_list %}
-  <li>
-
-    <div class="collapsible-header">
-      
-      <div class="trigger-info">
-        <span class="trigger-span">{{ trigger.stock_name }}</span>
-        <span class="trigger-span">{{ trigger.get_trigger_date_display }}</span>
-        <span class="trigger-span">{{ trigger.created_on }}</span>
-        <span class="bigger-span">{{ trigger.summary|striptags }}</span>
+        <div class="trigger-info">
+          <span class="trigger-span">{{ trigger.stock_name }}</span>
+          <span class="trigger-span">{{ trigger.get_trigger_date_display }}</span>
+          <span class="trigger-span">{{ trigger.created_on.date }}</span>
+          <span class="trigger-span">{{ trigger.trigger_headline }}</span>
+        </div>
       </div>
-    </div>
-    <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-  </li>
-  {% endfor %}
-</ul>
+      <div class="collapsible-body"><span>hej på dig</span></div>
+    </li>
+
+    {% endfor %}
+  </ul>
+</div>
 <!-- index.html content ends here -->
 {% endblock %}
