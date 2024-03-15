@@ -2,33 +2,44 @@
 
 {% block content %}
 
+<!-- What is a trigger section -->
 <div class="what-is">
   <div class="container">
+    <!-- Title -->
     <h2 class="what-trigger">What is a trigger?</h2>
 
-    <div class="row ">
+    <!-- Row of Trigger Information -->
+    <div class="row">
+      <!-- First Column -->
       <div class="col s12 col l3">
         <h3>01</h3>
+        <!-- Information is made public -->
         <p>Information is made public:</p>
         <p>Information about a future trigger in the form of an upcoming event, goal, or outcome is disclosed through
           official channels such as company reports, press releases, or other announcements by the company</p>
       </div>
+      <!-- Second Column -->
       <div class="col s12 col l3">
         <h3>02</h3>
+        <!-- Trigger date -->
         <p>Trigger date:</p>
         <p>This is the date of the trigger, which is the timing of the event that investors are waiting for, acting as
           the catalyst. This means that the closer the trigger date, the greater the potential for a market movement.
         </p>
       </div>
+      <!-- Third Column -->
       <div class="col s12 col l3">
         <h3>03</h3>
+        <!-- Investment opportunity -->
         <p>Investment opportunity:</p>
         <p>Here's where AktieTriggers comes in. Identifying these triggers in time can be challenging, making it
           difficult to enter the stock at the desired level. Our Trigger List gathers upcoming triggers so that you can
           carefully examine the company and make an informed decision.</p>
       </div>
+      <!-- Fourth Column -->
       <div class="col s12 col l3">
         <h3>04</h3>
+        <!-- Trigger announcement content -->
         <p>Trigger announcement:</p>
         <p>Investor actions lead to changes in stock prices. The market reacts by either raising or lowering stock
           prices depending on investors' collective assessment of the trigger's outcome.</p>
@@ -36,53 +47,71 @@
     </div>
   </div>
 </div>
+
+<!-- Our purpose section -->
 <div class="container">
   <div class="row">
     <div id="our-purpose" class="col s12 col l6">
+      <!-- Purpose Heading -->
       <h3>Seize the opportunity and invest in tomorrow's companies today.</h3>
     </div>
-    <div id="our-purpose" class="col s12 col l6 ">
+    <div id="our-purpose" class="col s12 col l6">
+      <!-- oPurpose sectin -->
       <p class="purpose-head">OUR PURPOSE:</p>
-
-      <p><em>Anticipate the Future:</em> We strive to identify and present upcoming triggers that may impact companies' value,
+      <!-- Purpose text -->
+      <p><em>- Anticipate the Future:</em> We strive to identify and present upcoming triggers that may impact companies' value,
         providing investors with the opportunity to anticipate and adapt to market movements.</p>
 
-      <p><em>Sharing of Information:</em> We understand that navigating the stock market can be challenging. Our vision is to
+      <p><em>- Sharing of Information:</em> We understand that navigating the stock market can be challenging. Our vision is to
         serve
         as a guide to facilitate your journey in the investment world. We aim to disseminate valuable information so
         that
         more people can benefit from successful investments.</p>
 
+      <!-- Remember section -->
       <p class="purpose-head">REMEMBER:</p>
-
-      <p><em>Personal Responsibility:</em> Investments always involve risks. Decisions should be made with care and based on
+      <!-- Remember text -->
+      <p><em>- Personal Responsibility:</em> Investments always involve risks. Decisions should be made with care and based on
         individual analysis and risk tolerance</p>
 
-      <p><em>No Investment Advice</em>: We do not provide personal investment advice or recommendations. AktieTriggers is a
+      <p><em>- No Investment Advice</em>: We do not provide personal investment advice or recommendations. AktieTriggers is a
         platform
         for information dissemination.</p>
     </div>
   </div>
 </div>
+
+<!-- Trigger Information Header -->
 <div class="container-list">
   <div class="trigger-info">
+    <!-- First Column -->
     <span class="order order-left"><i class="material-icons icon-style">work</i>Stock Name</span>
+    <!-- Second Column -->
     <span class="order"><i class="material-icons icon-style">trending_up</i>Trigger-date</span>
+    <!-- Third Column -->
     <span class="order"><i class="material-icons icon-style">event_available</i>Added</span>
+    <!-- Fourth Column -->
     <span class="order"><i class="material-icons icon-style">description</i>Trigger</span>
   </div>
 </div>
+
+<!-- List of Triggers -->
 <div class="container-list">
   <ul class="collapsible expandable">
     {% for trigger in trigger_list %}
-
+    <!-- List Item -->
     <li>
+      <!-- Collapsible Header -->
       <div class="collapsible-header list-bg">
-
+        <!-- Trigger Information -->
         <div class="trigger-info">
+          <!-- Stock Name -->
           <span class="trigger-span">{{ trigger.stock_name }}</span>
+          <!-- Trigger Date -->
           <span class="trigger-span">{{ trigger.get_trigger_date_display }}</span>
+          <!-- Added Date -->
           <span class="trigger-span">{{ trigger.created_on.date }}</span>
+          <!-- Trigger Headline -->
           <span class="trigger-span">{{ trigger.trigger_headline }}</span>
         </div>
       </div>
@@ -90,20 +119,24 @@
         <div class="info-grid">
           <div class="infotext-grid">
             <div class="text-padding">
-            <h5 class="summary-header">Summary of the trigger:</h5>
-            <span class="summary-text">{{ trigger.summary |safe }}</span>
+              <h5 class="summary-header">Summary of the trigger:</h5>
+              <!-- Trigger Summary -->
+              <span class="summary-text">{{ trigger.summary |safe }}</span>
             </div>
           </div>
+          <!-- Button Grid -->
           <div class="button-grid">
+            <!-- Padding Div -->
             <div class="padding-div">
+              <!-- Button to Source -->
               <a href="{{ trigger.pr_link }}" target="_blank" id="info-button" class="waves-effect waves-light btn"><i class="material-icons ">work</i>to the source</a>
+              <!-- Button to Company -->
               <a href="{{ trigger.website_link }}" target="_blank" id="company-button" class="waves-effect waves-light btn info-button"><i class="material-icons ">event_available</i>to the company</a>
             </div>
           </div>
         </div>
       </div>
     </li>
-
     {% endfor %}
   </ul>
 </div>
