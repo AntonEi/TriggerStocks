@@ -23,7 +23,22 @@
           <span class="trigger-span">{{ trigger.trigger_headline }}</span>
         </div>
       </div>
-      <div class="collapsible-body"><span>hej på dig</span></div>
+      <div class="collapsible-body">
+        <div class="info-grid">
+          <div class="infotext-grid">
+            <div class="text-padding">
+            <h5 class="summary-header">Summary of the trigger:</h5>
+            <span class="summary-text">{{ trigger.summary |safe }}</span>
+            </div>
+          </div>
+          <div class="button-grid">
+            <div class="padding-div">
+              <a href="{{ trigger.pr_link }}" target="_blank" id="info-button" class="waves-effect waves-light btn"><i class="material-icons ">work</i>to the source</a>
+              <a href="{{ trigger.website_link }}" target="_blank" id="company-button" class="waves-effect waves-light btn info-button"><i class="material-icons ">event_available</i>to the company</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </li>
 
     {% endfor %}

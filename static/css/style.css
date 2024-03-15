@@ -8,15 +8,13 @@ body {
     background-color: #3e4a55;
     font-family: "Quicksand", sans-serif;
 }
-
-h2 {
-    font-size: 200px;
-}
-
+/* The navbar style */
 .dark-nav {
     background-color: rgba(3, 4, 3, 0.81);
 }
-/* For the sort field (stocks, trigger-date...) */
+/* End navbar style */
+
+/* For the sort thead field (stocks, trigger-date...) */
 .order {
   font-weight: 700;
   font-size: 20px;
@@ -35,21 +33,20 @@ h2 {
 
 .trigger-info {
   display: grid;
-  grid-template-columns: 21% 15% 21% 37%; /* Each column occupies 25% of the container width */
+  grid-template-columns: 21% 15% 21% 43%; /* Each column occupies 25% of the container width */
   width: 100%;
   color: black;
-}
-
-.container-list {
-  width: 100%; /* Full width by default */
-  margin: 0 auto; /* Center the container horizontally */
-  max-width: 1626px; /* Set maximum width for the container */
-}
-
-.trigger-info {
   font-family: "Nunito", sans-serif;
   font-size: 20px;
   font-weight: 600;
+}
+/* End of the thead field (stocks, trigger-date...) */
+
+/* Header of the trigger list  */
+.container-list {
+  width: 100%; 
+  margin: 0 auto; 
+  max-width: 1626px; 
 }
 
 .collapsible-header {
@@ -64,6 +61,89 @@ h2 {
   box-shadow: none !important; /* Override for other browsers */
 }
 
+/* End of the Header trigger list  */
+
+/* Start of the info grid */
+.info-grid {
+  display: grid;
+  grid-template-columns: 60% 40%; /* Each column occupies 25% of the container width */
+  width: 100%;
+}
+
+.infotext-grid {
+  background-color: white;
+  font-family: "Nunito", sans-serif;
+  border-radius: 20px;
+  border-style: dashed;
+  border-color: #2c404c;
+  border-width: 1px;
+  border-spacing: 3px
+}
+
+.text-padding {
+  padding: 1rem;
+  font-family: "Nunito", sans-serif;
+}
+
+.summary-text {
+  font-size: 1rem;
+  font-family: "Quicksand";
+  font-weight: 500;
+  color: #38424b;
+}
+
+.summary-header {
+  font-size: 25;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  margin-top: 0;
+  color: #38424b;
+}
+
+/* buttons styling */
+
+.padding-div {
+  padding-left: 52px;
+  background-color: #3e4a55;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centers content horizontally */
+  align-items: center; /* Centers content vertically */
+  text-align: center; /* Ensures text is centered */
+}
+
+#info-button{
+  background-color: #f8c21a; 
+  height: 60px;
+  padding-left: 85px;
+  padding-right: 85px;
+  color: black;
+  border-radius: 15px;
+  font-family: "Nunito" sans-serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+#company-button {
+  background-color: #f8c21a; 
+  height: 60px;
+  margin-top: 15px;
+  padding-left: 80px;
+  padding-right: 80px;
+  color: black;
+  border-radius: 15px;
+  font-family: "Nunito" sans-serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+#info-button i, #company-button i {
+  margin-right: 15px; /* Increase the space between the icon and the text */
+  margin-top: 10px;
+  border-radius: 15px;
+}
+/* End of button styling */
+
+/* End of the info grid */
 
 @media (min-width: 1626px) {
   .container-list {
