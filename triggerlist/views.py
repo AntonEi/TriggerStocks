@@ -6,4 +6,4 @@ from .models import Trigger
 
 class TriggerList(generic.ListView):
     queryset = Trigger.objects.all()
-    template_name = "trigger_list.html"
+    template_name = "triggerlist/index.html"
