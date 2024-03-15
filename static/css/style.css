@@ -1,7 +1,11 @@
 body {
-    background-color: #F9FAFC;
+    background-color: pink;
 }
 
 h2 {
     font-size: 200px;
+}
+
+nav {
+    color: rgba(3, 4, 3, 0.81);
 }
