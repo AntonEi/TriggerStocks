@@ -3,6 +3,28 @@
 {% block content %}
 
 <h2>hey</h2>
+<ul class="collapsible expandable">
+  <li>
 
+    <div class="collapsible-header">
+      Aktiens namn, trigger-dt
+    </div>
+  </li>
+  {% for trigger in trigger_list %}
+  <li>
+
+    <div class="collapsible-header">
+      
+      <div class="trigger-info">
+        <span class="trigger-span">{{ trigger.stock_name }}</span>
+        <span class="trigger-span">{{ trigger.get_trigger_date_display }}</span>
+        <span class="trigger-span">{{ trigger.created_on }}</span>
+        <span class="bigger-span">{{ trigger.summary|striptags }}</span>
+      </div>
+    </div>
+    <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+  </li>
+  {% endfor %}
+</ul>
 <!-- index.html content ends here -->
 {% endblock %}

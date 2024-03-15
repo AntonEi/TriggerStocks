@@ -6,6 +6,19 @@ h2 {
     font-size: 200px;
 }
 
-nav {
-    color: rgba(3, 4, 3, 0.81);
+.dark-nav {
+    background-color: rgba(3, 4, 3, 0.81);
+}
+
+.trigger-info {
+  display: grid;
+  grid-template-columns: 21% 15% 21% 37%; /* Each column occupies 25% of the container width */
+  width: 100%;
+}
+
+.stock-name,
+.trigger-date,
+.trigger-created,
+.trigger-summary {
+  background-color: #ccc; /* just for demonstration */
 }
