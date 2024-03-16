@@ -5,6 +5,24 @@ from django.db.models import Q
 
 # Create your views here.
 
+
+
+def my_view(request, trigger_id):
+    queryset = Trigger.objects.get_all()
+    trigger = get_object_or_404(queryset,)  # Change pk=1 to the appropriate condition
+    comments = trigger.comments.all().order_by("-created_on")
+    comment_count = comments.count()
+
+    return render(
+        request,
+        "triggerlist/index.html",
+        {
+            "trigger": trigger,
+            "comments": comments,
+            "comment_count": comment_count,
+        },
+    )
+
 class TriggerList(generic.ListView):
     queryset = Trigger.objects.all()
     template_name = "triggerlist/index.html"

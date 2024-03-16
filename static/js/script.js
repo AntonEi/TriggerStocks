@@ -52,7 +52,11 @@ document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('select');
     var instances = M.FormSelect.init(elems);
   });
-
+// comment drop up
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.modal');
+    var instances = M.Modal.init(elems);
+});
 
 searchInput.addEventListner("input", e => {
     const value = e.target.value.toLoweCase()
@@ -62,3 +66,5 @@ searchInput.addEventListner("input", e => {
         user.element.classList.toggle("hide", !isVisible)
     })
 })
+
+

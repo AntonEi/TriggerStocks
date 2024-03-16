@@ -5,7 +5,9 @@
 *{
   margin: 0;
   padding: 0;
-
+}
+.text-end {
+  color: white;
 }
 
 body {
@@ -189,7 +191,23 @@ body {
 }
 /* End of the thead field (stocks, trigger-date...) */
 
+
+
 /* Header of the trigger list  */
+.triggerlisth h2{
+  color: white;
+  font-family: 'Raleway', sans-serif;
+  font-size: 80px;
+  font-weight: 700;
+  text-align: center;
+  /* Ensure vertical alignment */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
 .container-list {
   width: 100%; 
   margin: 0 auto; 

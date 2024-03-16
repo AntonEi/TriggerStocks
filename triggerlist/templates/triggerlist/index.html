@@ -95,6 +95,10 @@
   </div>
 </div>
 
+
+<div class="triggerlisth">
+  <H2>The TriggerList</H2>
+</div>
 <div class="row">
   <!-- Search Form Column -->
   <div class="col s6">
@@ -150,7 +154,6 @@
     <span class="order"><i class="material-icons icon-style">description</i>Trigger</span>
   </div>
 </div>
-
 <!-- List of Triggers -->
 <div class="container-list">
   <ul class="collapsible expandable">
@@ -178,6 +181,54 @@
               <h5 class="summary-header">Summary of the trigger:</h5>
               <!-- Trigger Summary -->
               <span class="summary-text">{{ trigger.summary |safe }}</span>
+              <!-- Modal Trigger -->
+              <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Comment</a>
+
+              <!-- Modal Structure -->
+              <div id="modal1" class="modal bottom-sheet">
+                <div class="modal-content">
+                  <!-- Displaying count of comments -->
+                  <div class="row">
+                    <div class="col-12">
+                      <strong class="text-secondary">
+                        <i class="far fa-comments"></i> {{ comment_count }}
+                      </strong>
+                    </div>
+                    <div class="col-12">
+                      <hr>
+                    </div>
+                  </div>
+                  <!-- Displaying Comments -->
+                  <div class="row">
+                    <div class="col-md-8 card mb-4  mt-3 ">
+                      <h3>Comments:</h3>
+                      <div class="card-body">
+                        <!-- We want a for loop inside the empty control tags
+          to iterate through each comment in comments -->
+                        {% for comment in comments %}
+                        <div class="p-2 comments
+          {% if not comment.approved and comment.author == user %}
+          faded{% elif not comment.approved %} d-none{% endif %}">
+                          <p class="font-weight-bold">
+                            {{ comment.author }}
+                            <span class="font-weight-normal">
+                              {{ comment.created_on }}
+                            </span> wrote:
+                          </p>
+                          <div id="comment{{ comment.id }}">
+                            {{ comment.body | linebreaks }}
+                          </div>
+                        </div>
+                        <!-- Our for loop ends here -->
+                        {% endfor %}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+                </div>
+              </div>
             </div>
           </div>
           <!-- Button Grid -->
@@ -185,9 +236,12 @@
             <!-- Padding Div -->
             <div class="padding-div">
               <!-- Button to Source -->
-              <a href="{{ trigger.pr_link }}" target="_blank" id="info-button" class="waves-effect waves-light btn"><i class="material-icons ">work</i>to the source</a>
+              <a href="{{ trigger.pr_link }}" target="_blank" id="info-button" class="waves-effect waves-light btn"><i
+                  class="material-icons ">work</i>to the source</a>
               <!-- Button to Company -->
-              <a href="{{ trigger.website_link }}" target="_blank" id="company-button" class="waves-effect waves-light btn info-button"><i class="material-icons ">event_available</i>to the company</a>
+              <a href="{{ trigger.website_link }}" target="_blank" id="company-button"
+                class="waves-effect waves-light btn info-button"><i class="material-icons ">event_available</i>to the
+                company</a>
             </div>
           </div>
         </div>

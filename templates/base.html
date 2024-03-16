@@ -39,8 +39,8 @@
                     <li class="{% if request.path == home_url %}active{% endif %}"><a href="{% url 'home' %}">Home</a>
                     </li>
                     <li><a href="badges.html">About</a></li>
-                    <li><a href="collapsible.html">Javascript</a></li>
-                    <li><a href="mobile.html">Mobile</a></li>
+                    <li><a href="collapsible.html">Suggest</a></li>
+                    <li><a href="mobile.html">TriggerList</a></li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page" href="{% url 'account_logout' %}">Logout</a>
@@ -60,7 +60,7 @@
             </div>
         </div>
     </nav>
-
+    
     <ul class="sidenav" id="mobile-links">
         <li class="{% if request.path == home_url %}active{% endif %}"><a href="{% url 'home' %}">Home</a></li>
         <li><a href="badges.html">Components</a></li>
@@ -74,6 +74,7 @@
 <body class="d-flex flex-column h-100 main-bg">
 
     <main class="flex-shrink-0 main-bg">
+        
 
         {% block content %}
         <!-- Content Goes here -->
