@@ -12,10 +12,25 @@ body {
     background-color: #3e4a55;
     font-family: "Quicksand", sans-serif;
 }
+.hero {
+  
+  position: relative;
+}
 
 /* The navbar style */
 .dark-nav {
     background-color: rgba(3, 4, 3, 0.81);
+    height: 80px;
+    position: sticky;
+    top: 0; /* Stick to the top of the viewport */
+    z-index: 1000; /* Ensure the navigation bar is above other content */
+}
+.bc-nav{
+  background-color: black;
+}
+
+.dark-nav .nav-wrapper {
+  background-color: transparent; /* Remove Materialize background color */
 }
 /* End navbar style */
 
@@ -53,12 +68,13 @@ body {
 .header-content a{
   text-decoration: none;
   display: inline-block;
-  color: white;
-  font-size: 24px;
-  border: 2px solid #fff;
+  color: #f8c21a;
+  font-size: 26px;
+  border: 2px solid #f8c21a;
   padding: 14px 70px;
   border-radius: 50px;
   margin-top: 150px;
+  font-weight: 500;
 
 }
 
@@ -81,6 +97,8 @@ body {
   align-items: center;
   justify-content: center;
   background-color: #e9e9e9;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 .what-trigger {
   text-align: center;
