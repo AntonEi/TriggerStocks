@@ -35,6 +35,30 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.autocomplete');
-    var instances = M.Autocomplete.init(elems, options);
+    var search = document.getElementById('autocomplete-input');
+  
+    search.addEventListener('input', function(event) {
+      // Prevent form submission
+      event.preventDefault();
+  
+      // Trigger form submission when input value changes
+      form.submit();
+    });
   });
+
+
+// Dropdown code
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems);
+  });
+
+
+searchInput.addEventListner("input", e => {
+    const value = e.target.value.toLoweCase()
+    users.forEach(user => {
+        const isVisible =
+            user.name.toLoweCase().includes(value)
+        user.element.classList.toggle("hide", !isVisible)
+    })
+})

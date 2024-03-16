@@ -2,17 +2,77 @@
 
 /*font-family: "Quicksand", sans-serif;*/
 /*font-family: "Raleway", sans-serif;*/
+*{
+  margin: 0;
+  padding: 0;
 
+}
 
 body {
     background-color: #3e4a55;
     font-family: "Quicksand", sans-serif;
 }
+
 /* The navbar style */
 .dark-nav {
     background-color: rgba(3, 4, 3, 0.81);
 }
 /* End navbar style */
+
+.hero {
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.56),rgba(0, 0, 0, 0.56));
+  position: relative;
+  padding: 0 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-content {
+  text-align: center;
+}
+.header-content h1{
+  font-size: 120px;
+  color: white;
+  font-weight: 700;
+  font-family: "Raleway", sans-serif;
+  transition: 0.5s;
+}
+.header-content h1:hover{
+  -webkit-text-stroke: 2px #fff;
+  color: transparent;
+}
+.header-content p{
+  color: white;
+  font-size: 25px;
+  font-weight: 300;
+}
+
+.header-content a{
+  text-decoration: none;
+  display: inline-block;
+  color: white;
+  font-size: 24px;
+  border: 2px solid #fff;
+  padding: 14px 70px;
+  border-radius: 50px;
+  margin-top: 150px;
+
+}
+
+.back-video {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  object-fit: cover; /* Ensure the video covers the entire viewport */
+  width: 100%; /* Set the width to cover the entire viewport */
+  height: 100%; /* Set the height to cover the entire viewport */
+}
+
+
 
 /* Start of the "what is a trigger section */
 .what-is {
@@ -219,3 +279,5 @@ body {
     padding: 0 20px; /* Adjust padding for smaller screens */
   }
 }
+
+

@@ -1,6 +1,17 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block content %}
+
+<div class="hero">
+  <video autoplay loop muted plays-inline class="back-video">
+    <source src="{% static 'images/header-video.mp4' %}" type="video/mp4">
+  </video>
+  <div class="header-content">
+    <h1>TriggerStocks</h1>
+    <p><em>Your key to smart investments.</em></p>
+    <a href="#">Explore Triggers</a>
+  </div>
+</div>
 
 <!-- What is a trigger section -->
 <div class="what-is">
@@ -81,6 +92,54 @@
   </div>
 </div>
 
+<div class="row">
+  <!-- Search Form Column -->
+  <div class="col s6">
+    <div class="input-field col s12">
+      <form method="POST" action="{% url 'search' %}">
+        <input type="text" id="autocomplete-input" name="search">
+        <label for="autocomplete-input">Search Triggers</label>
+        {% csrf_token %}
+      </form>
+    </div>
+  </div>
+
+  <!-- Dropdown Columns -->
+  <div class="col s3">
+    <div class="input-field col s12">
+      <select multiple>
+        <option value="" disabled selected>Sort by quarter/half-year 2024</option>
+        <option value="1">2024-Q1</option>
+        <option value="2">2024-Q2</option>
+        <option value="3">2024-Q3</option>
+        <option value="4">2024-Q4</option>
+        <option value="5">2024-H1</option>
+        <option value="6">2024-H2</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="col s3">
+    <div class="input-field col s12">
+      <select multiple>
+        <option value="" disabled selected>Sort by quarter/half-year 2025</option>
+        <option value="1">2025-Q1</option>
+        <option value="2">2025-Q2</option>
+        <option value="3">2025-Q3</option>
+        <option value="4">2025-Q4</option>
+        <option value="5">2025-H1</option>
+        <option value="6">2025-H2</option>
+      </select>
+    </div>
+  </div>
+</div>
+<style>
+  /* CSS to style the options */
+  .side-by-side {
+    display: inline-block;
+    margin-right: 10px; /* Adjust as needed */
+  }
+</style>
 
 <!-- Trigger Information Header -->
 <div class="container-list">
