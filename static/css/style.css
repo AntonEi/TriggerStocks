@@ -37,9 +37,9 @@ body {
 
 .col {
   display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  height: 100%; /* Adjust based on your needs */
+  justify-content: center; 
+  align-items: center; 
+  height: 100%; 
   flex-direction: column;
   text-align: center;
   color: #38424b;
@@ -68,8 +68,8 @@ body {
 
 .col.l6 {
   display: flex;
-  align-items: center; /* Center vertically */
-  justify-content: center; /* Center horizontally */
+  align-items: center; 
+  justify-content: center; 
   align-self: center;
   height: 700px;
 }
@@ -94,9 +94,9 @@ body {
 }
 
 .icon-style {
-  vertical-align: middle; /* Align icons vertically in the middle */
-  margin-bottom: 3px; /* Add some bottom margin to move the icons down */
-  color: white; /* Set the color of the icons to white */
+  vertical-align: middle; 
+  margin-bottom: 3px; 
+  color: white; 
   margin-right: 3px;
 }
 
