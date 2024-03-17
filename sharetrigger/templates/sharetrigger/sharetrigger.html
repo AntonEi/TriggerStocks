@@ -3,27 +3,27 @@
 {% load static %}
 <form method="post" class="sharetrigger-form">
     {% csrf_token %}
-    <div class="form-group">
-        <label for="id_suggest_stock">Suggest Stock:</label>
-        {{ form.suggest_stock }}
+    <div class="input-field">
+        <input type="text" id="id_suggest_stock" name="suggest_stock" class="validate">
+        <label for="id_suggest_stock">Suggest Stock</label>
     </div>
-    <div class="form-group">
-        <label for="id_suggest_date">Suggest Date:</label>
-        {{ form.suggest_date }}
+    <div class="input-field">
+        <input type="text" id="id_suggest_date" name="suggest_date" class="validate">
+        <label for="id_suggest_date">Suggest Date</label>
     </div>
-    <div class="form-group">
-        <label for="id_suggest_summary">Suggest Summary:</label>
-        {{ form.suggest_summary }}
+    <div class="input-field">
+        <textarea id="id_suggest_summary" name="suggest_summary" class="materialize-textarea validate"></textarea>
+        <label for="id_suggest_summary">Suggest Summary</label>
     </div>
-    <div class="form-group">
-        <label for="id_more_info">More Info:</label>
-        {{ form.more_info }}
+    <div class="input-field">
+        <input type="text" id="id_more_info" name="more_info" class="validate">
+        <label for="id_more_info">More Info</label>
     </div>
-    <div class="form-group">
-        <label for="id_suggest_pr">Suggest PR:</label>
-        {{ form.suggest_pr }}
+    <div class="input-field">
+        <input type="text" id="id_suggest_pr" name="suggest_pr" class="validate">
+        <label for="id_suggest_pr">Suggest PR</label>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn waves-effect waves-light">Submit</button>
 </form>
 
 {% endblock content %}

@@ -323,6 +323,10 @@ body {
   margin-bottom: 0; /* Remove bottom margin for the last comment */
 }
 
+
+
+
+
 @media (min-width: 1626px) {
   .container-list {
     padding: 0 20px; /* Adjust padding for smaller screens */
