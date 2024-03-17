@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('summernote/', include('django_summernote.urls')),
     path("", include("triggerlist.urls"), name="triggerlist-urls"),
+    path("sharetrigger/", include("sharetrigger.urls"), name="sharetrigger-urls"),
 ]

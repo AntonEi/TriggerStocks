@@ -1,5 +1,6 @@
 {% load static %}
 
+{% url 'sharetrigger' as sharetrigger_url %}
 {% url 'home' as home_url %}
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
@@ -40,9 +41,15 @@
                 <ul class="right hide-on-med-and-down">
                     <li class="{% if request.path == home_url %}active{% endif %}"><a href="{% url 'home' %}">Home</a>
                     </li>
-                    <li><a href="badges.html">About</a></li>
-                    <li><a href="collapsible.html">Suggest</a></li>
-                    <li><a href="mobile.html">TriggerList</a></li>
+                    <li class="nav-item">
+                        <a
+                          class="nav-link
+                          {% if request.path == sharetrigger %}active{%endif%}"
+                          aria-current="page"
+                          href="{% url 'sharetrigger' %}"
+                          >About</a
+                        >
+                      </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page"
