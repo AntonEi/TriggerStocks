@@ -1,17 +1,32 @@
 from django.shortcuts import render
 from django.views import generic, View
 from .models import Trigger
-from django.db.models import Q
+from .forms import CommentForm
+from django.contrib import messages
 
 # Create your views here.
 
 
 
-def my_view(request, trigger_id):
+def CommentList(request, trigger_id):
     queryset = Trigger.objects.get_all()
     trigger = get_object_or_404(queryset,)  # Change pk=1 to the appropriate condition
     comments = trigger.comments.all().order_by("-created_on")
-    comment_count = comments.count()
+    comment_count = trigger.comments.count()
+
+    if request.method == "POST":
+        comment_form = CommentForm(data=request.POST)
+        if comment_form.is_valid():
+            comment = comment_form.save(commit=False)
+            comment.author = request.user
+            comment.trigger = trigger
+            comment.save()
+            messages.add_message(
+                request, messages.SUCCESS,
+                'Comment submitted and awaiting approval'
+            )
+
+    comment_form = CommentForm()
 
     return render(
         request,
@@ -20,6 +35,7 @@ def my_view(request, trigger_id):
             "trigger": trigger,
             "comments": comments,
             "comment_count": comment_count,
+            "comment_form": comment_form,
         },
     )
 

@@ -1,12 +1,14 @@
 {% extends "base.html" %}
 {% load static %}
+{% load crispy_forms_tags %}
+
 {% block content %}
 
 <div class="hero">
   <video autoplay loop muted plays-inline class="back-video">
     <source src="{% static 'images/header-video.mp4' %}" type="video/mp4">
   </video>
-  
+
   <div class="header-content">
     <h1>TriggerStocks</h1>
     <p><em>Your key to smart investments.</em></p>
@@ -72,10 +74,12 @@
       <p class="purpose-head">OUR PURPOSE:</p>
       <!-- Purpose text -->
       <br>
-      <p><em>- Anticipate the Future:</em> We strive to identify and present upcoming triggers that may impact companies' value,
+      <p><em>- Anticipate the Future:</em> We strive to identify and present upcoming triggers that may impact
+        companies' value,
         providing investors with the opportunity to anticipate and adapt to market movements.</p>
-        <br>
-      <p><em>- Sharing of Information:</em> We understand that navigating the stock market can be challenging. Our vision is to
+      <br>
+      <p><em>- Sharing of Information:</em> We understand that navigating the stock market can be challenging. Our
+        vision is to
         serve
         as a guide to facilitate your journey in the investment world. We aim to disseminate valuable information so
         that
@@ -85,10 +89,12 @@
       <p class="purpose-head">REMEMBER:</p>
       <!-- Remember text -->
       <br>
-      <p><em>- Personal Responsibility:</em> Investments always involve risks. Decisions should be made with care and based on
+      <p><em>- Personal Responsibility:</em> Investments always involve risks. Decisions should be made with care and
+        based on
         individual analysis and risk tolerance</p>
-        <br>
-      <p><em>- No Investment Advice</em>: We do not provide personal investment advice or recommendations. AktieTriggers is a
+      <br>
+      <p><em>- No Investment Advice</em>: We do not provide personal investment advice or recommendations. AktieTriggers
+        is a
         platform
         for information dissemination.</p>
     </div>
@@ -149,7 +155,7 @@
     <!-- Second Column -->
     <span class="order"><i class="material-icons icon-style">trending_up</i>Trigger-date</span>
     <!-- Third Column -->
-    <span class="order"><i class="material-icons icon-style">event_available</i>Added</span>
+    <span class="order hidden-on-small-screen"><i class="material-icons icon-style">event_available</i>Added</span>
     <!-- Fourth Column -->
     <span class="order"><i class="material-icons icon-style">description</i>Trigger</span>
   </div>
@@ -169,7 +175,7 @@
           <!-- Trigger Date -->
           <span class="trigger-span">{{ trigger.get_trigger_date_display }}</span>
           <!-- Added Date -->
-          <span class="trigger-span">{{ trigger.created_on.date }}</span>
+          <span class="trigger-span hidden-on-small-screen">{{ trigger.created_on.date }}</span>
           <!-- Trigger Headline -->
           <span class="trigger-span">{{ trigger.trigger_headline }}</span>
         </div>
@@ -182,53 +188,7 @@
               <!-- Trigger Summary -->
               <span class="summary-text">{{ trigger.summary |safe }}</span>
               <!-- Modal Trigger -->
-              <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Comment</a>
-
-              <!-- Modal Structure -->
-              <div id="modal1" class="modal bottom-sheet">
-                <div class="modal-content">
-                  <!-- Displaying count of comments -->
-                  <div class="row">
-                    <div class="col-12">
-                      <strong class="text-secondary">
-                        <i class="far fa-comments"></i> {{ comment_count }}
-                      </strong>
-                    </div>
-                    <div class="col-12">
-                      <hr>
-                    </div>
-                  </div>
-                  <!-- Displaying Comments -->
-                  <div class="row">
-                    <div class="col-md-8 card mb-4  mt-3 ">
-                      <h3>Comments:</h3>
-                      <div class="card-body">
-                        <!-- We want a for loop inside the empty control tags
-          to iterate through each comment in comments -->
-                        {% for comment in comments %}
-                        <div class="p-2 comments
-          {% if not comment.approved and comment.author == user %}
-          faded{% elif not comment.approved %} d-none{% endif %}">
-                          <p class="font-weight-bold">
-                            {{ comment.author }}
-                            <span class="font-weight-normal">
-                              {{ comment.created_on }}
-                            </span> wrote:
-                          </p>
-                          <div id="comment{{ comment.id }}">
-                            {{ comment.body | linebreaks }}
-                          </div>
-                        </div>
-                        <!-- Our for loop ends here -->
-                        {% endfor %}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="modal-footer">
-                  <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
-                </div>
-              </div>
+              <a class="waves-effect waves-light btn modal-trigger" href="#modal{{ trigger.id }}">Comment</a>
             </div>
           </div>
           <!-- Button Grid -->
@@ -250,5 +210,79 @@
     {% endfor %}
   </ul>
 </div>
+{% for trigger in trigger_list %}
+<div id="modal{{ trigger.id }}" class="modal bottom-sheet">
+  <div class="modal-content">
+    <!-- Displaying count of comments -->
+    <!-- Creating New Comments -->
+    <div class="col-md-4 mb-4 mt-3">
+      <div class="card-body">
+        {% if user.is_authenticated %}
+        <h3>Leave a comment:</h3>
+        <p>Posting as: {{ user.username }}</p>
+        <form id="commentForm" method="post" style="margin-top: 1.3em;">
+          {{ comment_form | crispy }}
+          {% csrf_token %}
+          <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button>
+        </form>
+        {% else %}
+        <p>Log in to leave a comment</p>
+        {% endif %}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <strong class="text-secondary">
+          <i class="far fa-comments"></i> {{ trigger.comments.count }}
+        </strong>
+      </div>
+      <div class="col-12">
+        <hr>
+      </div>
+    </div>
+    <!-- Displaying Comments -->
+    <div class="row">
+      <div class="col-md-8 mb-4 mt-3">
+        <h3>Comments:</h3>
+        <div class="card-body">
+          <!-- We want a for loop inside the empty control tags to iterate through each comment in comments -->
+          {% for comment in trigger.comments.all %}
+          <div class="p-2 comments">
+            <p class="font-weight-bold">
+              {{ comment.author }}
+              <span class="font-weight-normal">
+                {{ comment.created_on }}
+              </span> wrote:
+            </p>
+            <div id="comment{{ comment.id }}">
+              {{ comment.body | safe }}
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
+  </div>
+</div>
+{% endfor %}
+<!-- displaying Django messages -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      {% for message in messages %}
+      <div class="alert {{ message.tags }} alert-dismissible
+        fade show" id="msg" role="alert">
+        {{ message | safe }}
+        <button type="button" class="btn-close"
+          data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
 <!-- index.html content ends here -->
 {% endblock %}

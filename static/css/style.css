@@ -51,7 +51,7 @@ body {
   text-align: center;
 }
 .header-content h1{
-  font-size: 120px;
+  font-size: 100px;
   color: white;
   font-weight: 700;
   font-family: "Raleway", sans-serif;
@@ -89,7 +89,6 @@ body {
   width: 100%; /* Set the width to cover the entire viewport */
   height: 100%; /* Set the height to cover the entire viewport */
 }
-
 
 
 /* Start of the "what is a trigger section */
@@ -277,30 +276,20 @@ body {
   text-align: center; /* Ensures text is centered */
 }
 
-#info-button{
-  background-color: #f8c21a; 
+#info-button, #company-button {
+  background-color: #f8c21a;
   height: 60px;
-  padding-left: 85px;
-  padding-right: 85px;
   color: black;
   border-radius: 15px;
-  font-family: "Nunito" sans-serif;
+  font-family: "Nunito", sans-serif;
   font-size: 1.3rem;
   font-weight: 600;
-}
-#company-button {
-  background-color: #f8c21a; 
-  height: 60px;
-  margin-top: 15px;
-  padding-left: 80px;
-  padding-right: 80px;
-  color: black;
-  border-radius: 15px;
-  font-family: "Nunito" sans-serif;
-  font-size: 1.3rem;
-  font-weight: 600;
+  width: 240px;
 }
 
+#company-button {
+  margin-top: 15px; /* Add margin-top only for company-button */
+}
 #info-button i, #company-button i {
   margin-right: 15px; /* Increase the space between the icon and the text */
   margin-top: 10px;
@@ -308,11 +297,157 @@ body {
 }
 /* End of button styling */
 
-/* End of the info grid */
+/* Comment styling */
+.comments {
+  margin-bottom: 20px; /* Add spacing between individual comments */
+  padding: 15px; /* Add padding to the comment container */
+  border: 1px solid #ddd; /* Add a border to separate comments */
+  border-radius: 5px; /* Add rounded corners to the comment container */
+  background-color: #f9f9f9; /* Add a light background color to the comment container */
+}
+
+.comments .font-weight-bold {
+  margin-bottom: 5px; /* Add spacing between author/date and comment body */
+}
+
+.comments .font-weight-normal {
+  font-size: 0.9em; /* Reduce font size for date */
+  color: #777; /* Dim the color of the date */
+}
+
+.comments p {
+  margin-top: 10px; /* Add spacing between paragraphs in comments */
+}
+
+.comments:last-child {
+  margin-bottom: 0; /* Remove bottom margin for the last comment */
+}
 
 @media (min-width: 1626px) {
   .container-list {
     padding: 0 20px; /* Adjust padding for smaller screens */
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .col.l6 {
+    height: 400px; /* Adjust height for smaller screens */
+    margin-bottom: 20px; /* Adjust margin bottom for spacing */
+  }
+}
+
+/* End of the info grid */
+ /* Styles for screens up to 768px wide */
+@media only screen and (max-width: 768px) {
+ 
+  .header-content {
+    margin-bottom: 100px; /* Adjust the margin to move the text higher up */
+  }
+
+  .header-content h1 {
+    font-size: 45px; /* Adjust font size for smaller screens */
+  }
+
+  .header-content p {
+    margin-bottom: 20px; /* Adjust spacing between header and paragraph */
+  }
+
+  .header-content a {
+    margin-bottom: 50px; /* Adjust margin top for the button */
+  }
+
+  .col.l6 {
+    height: 400px; /* Adjust height for smaller screens */
+    margin-bottom: 40px; /* Adjust margin bottom for spacing */
+  }
+
+  .triggerlisth h2{
+    font-size: 50px;
+    margin-top: 100px;
+  }
+
+}
+
+@media only screen and (max-width: 700px) {
+
+  .triggerlisth h2{
+    font-size: 45px;
+    margin-top: 120px;
+  }
+  
+  .hidden-on-small-screen {
+    display: none; /* Hide the element */
+  }
+  .order {
+    font-size: 10px;
+   }
+   .collapsible-header.list-bg {
+    padding-left: 3px;
+    padding-right: 3px;
+   }
+    
+  .trigger-info {
+    grid-template-columns: 30% 23% 47%; /* Each column occupies 25% of the container width */
+    font-size: 12px;
+  }
+  .info-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .padding-div {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-content: space-between; /* Add space between buttons */
+    padding-left: 0;
+  }
+
+  .button-grid a {
+    margin-top: 15px;
+  }
+
+  #company-button {
+    margin-left: 5%;
+  }
+  .button-grid {
+    width: 100%;
+  }
+
+  #info-button .material-icons,
+  #company-button .material-icons {
+    display: none;
+    
+    }
+
+  #info-button, #company-button {
+    width: auto;
+    font-size: 13px;
+    line-height: 1.9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 389px) {
+  .triggerlisth h2{
+    font-size: 33px;
+    margin-top: 180px;
+  }
+
+  .header-content h1{
+    font-size: 36px;
+  }
+
+  .header-content p{
+    font-size: 18px;
+  }
+  
+  .header-content a{
+    font-size: 20px;
+    padding: 14px 45px;
   }
 }
 
