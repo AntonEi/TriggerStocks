@@ -5,51 +5,80 @@
 {% block content %}
 
 <div class="container">
-  <!-- Trigger Information -->
-  <div class="row">
-    <div class="col">
-      <h1>{{ trigger.stock_name }}</h1>
-      <p><strong>Created On:</strong> {{ trigger.created_on }}</p>
+    <!-- Trigger Information -->
+    <div class="row">
+        <div class="col">
+            <h1>{{ trigger.stock_name }}</h1>
+            <p><strong>Created On:</strong> {{ trigger.created_on }}</p>
+        </div>
     </div>
-  </div>
 
-  <!-- Trigger Summary -->
-  <div class="row">
-    <div class="col">
-      <h2>Summary</h2>
-      <p>{{ trigger.summary | safe }}</p>
+    <!-- Trigger Summary -->
+    <div class="row">
+        <div class="col">
+            <h2>Summary</h2>
+            <p>{{ trigger.summary | safe }}</p>
+        </div>
     </div>
-  </div>
 
- <!-- Comment Form -->
-  <div class="row">
+    <!-- Comment Form -->
+    <div class="row">
+        <div class="col">
+            <h2>Add a Comment</h2>
+            <form method="post" id="CommentForm">
+                {% csrf_token %}
+                {{ comment_form | crispy }}
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Comments Section -->
+<div class="row">
     <div class="col">
-      <h2>Add a Comment</h2>
-      <form method="post" id="CommentForm">
-        {% csrf_token %}
-        {{ comment_form | crispy }}
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
+        <h2>Comments</h2>
+        {% for comment in trigger.comments.all %}
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ comment.author }}</h5>
+                <p class="card-text">{{ comment.body | safe }}</p>
+                <p class="card-text"><small class="text-muted">{{ comment.created_on }}</small></p>
+                {% if user.is_authenticated and comment.author == user %}
+                <button class="btn btn-delete"
+                    comment_id="{{ comment.id }}">Delete</button>
+                <button class="btn btn-edit" comment_id="{{ comment.id }}">Edit</button>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Delete confirmation modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1"
+  aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"
+          id="deleteModalLabel">Delete comment?</h5>
+        <button type="button" class="btn-close"
+          data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to delete your comment?
+        This action cannot be undone.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary"
+          data-bs-dismiss="modal">Close</button>
+        <a id="deleteConfirm" href="#" class="btn
+          btn-danger">Delete</a>
+      </div>
     </div>
   </div>
 </div>
-  <!-- Comments Section -->
-  <div class="row">
-    <div class="col">
-      <h2>Comments</h2>
-      {% for comment in trigger.comments.all %}
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">{{ comment.author }}</h5>
-          <p class="card-text">{{ comment.body | safe }}</p>
-          <p class="card-text"><small class="text-muted">{{ comment.created_on }}</small></p>
-        </div>
-      </div>
-      {% endfor %}
-    </div>
-  </div>
 
- 
 
 {% endblock %}
 
