@@ -34,17 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var instances = M.Collapsible.init(elems, options);
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    var search = document.getElementById('autocomplete-input');
-  
-    search.addEventListener('input', function(event) {
-      // Prevent form submission
-      event.preventDefault();
-  
-      // Trigger form submission when input value changes
-      form.submit();
-    });
-  });
+
 
 
 // Dropdown code

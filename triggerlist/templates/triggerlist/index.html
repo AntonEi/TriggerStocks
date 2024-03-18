@@ -100,23 +100,18 @@
     </div>
   </div>
 </div>
+<form id="searchForm">
+  <label for="search">Search:</label>
+  <input type="text" id="search" name="search">
+  <button type="submit">Search</button>
+</form>
 
+<div id="searchResults"></div>
 
 <div class="triggerlisth">
   <H2>The TriggerList</H2>
 </div>
 <div class="row">
-  <!-- Search Form Column -->
-  <div class="col s6">
-    <div class="input-field col s12">
-      <form method="POST" action="{% url 'search' %}">
-        <input type="text" id="autocomplete-input" name="search">
-        <label for="autocomplete-input">Search Triggers</label>
-        {% csrf_token %}
-      </form>
-    </div>
-  </div>
-
   <!-- Dropdown Columns -->
   <div class="col s3">
     <div class="input-field col s12">
@@ -188,7 +183,7 @@
               <!-- Trigger Summary -->
               <span class="summary-text">{{ trigger.summary |safe }}</span>
               <!-- Modal Trigger -->
-              <a class="waves-effect waves-light btn modal-trigger" href="#modal{{ trigger.id }}">Comment</a>
+              <a href="{% url 'trigger_detail' slug=trigger.slug %}" class="post-link">Comment</a>
             </div>
           </div>
           <!-- Button Grid -->
@@ -210,79 +205,10 @@
     {% endfor %}
   </ul>
 </div>
-{% for trigger in trigger_list %}
-<div id="modal{{ trigger.id }}" class="modal bottom-sheet">
-  <div class="modal-content">
-    <!-- Displaying count of comments -->
-    <!-- Creating New Comments -->
-    <div class="col-md-4 mb-4 mt-3">
-      <div class="card-body">
-        {% if user.is_authenticated %}
-        <h3>Leave a comment:</h3>
-        <p>Posting as: {{ user.username }}</p>
-        <form id="commentForm" method="post" style="margin-top: 1.3em;">
-          {{ comment_form | crispy }}
-          {% csrf_token %}
-          <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button>
-        </form>
-        {% else %}
-        <p>Log in to leave a comment</p>
-        {% endif %}
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12">
-        <strong class="text-secondary">
-          <i class="far fa-comments"></i> {{ trigger.comments.count }}
-        </strong>
-      </div>
-      <div class="col-12">
-        <hr>
-      </div>
-    </div>
-    <!-- Displaying Comments -->
-    <div class="row">
-      <div class="col-md-8 mb-4 mt-3">
-        <h3>Comments:</h3>
-        <div class="card-body">
-          <!-- We want a for loop inside the empty control tags to iterate through each comment in comments -->
-          {% for comment in trigger.comments.all %}
-          <div class="p-2 comments">
-            <p class="font-weight-bold">
-              {{ comment.author }}
-              <span class="font-weight-normal">
-                {{ comment.created_on }}
-              </span> wrote:
-            </p>
-            <div id="comment{{ comment.id }}">
-              {{ comment.body | safe }}
-            </div>
-          </div>
-          {% endfor %}
-        </div>
-      </div>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
-    </div>
-  </div>
-</div>
-{% endfor %}
-<!-- displaying Django messages -->
-<div class="container">
-  <div class="row">
-    <div class="col-md-8 offset-md-2">
-      {% for message in messages %}
-      <div class="alert {{ message.tags }} alert-dismissible
-        fade show" id="msg" role="alert">
-        {{ message | safe }}
-        <button type="button" class="btn-close"
-          data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
-      {% endfor %}
-    </div>
-  </div>
-</div>
 
 <!-- index.html content ends here -->
+{% endblock %}
+
+{% block extras %}
+<script src="{% static 'js/comments.js' %}"></script>
 {% endblock %}

@@ -323,8 +323,41 @@ body {
   margin-bottom: 0; /* Remove bottom margin for the last comment */
 }
 
+.summary-textarea {
+  height: 200px; /* Adjust the height as needed */
+}
 
+/* Custom CSS for form styling */
+.custom-input {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
 
+.summary-textarea {
+  height: 100px; /* Adjust the height as needed */
+}
+
+.custom-btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Optional: Additional styling */
+.custom-input:focus {
+  outline: none;
+  border-color: #4CAF50; /* Change border color when focused */
+}
+
+.custom-btn:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
 
 
 @media (min-width: 1626px) {

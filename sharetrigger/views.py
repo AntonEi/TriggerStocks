@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import sharetrigger  # Change the import to match the model name
+from django.views.generic import ListView
 
 def share_trigger(request):
     """

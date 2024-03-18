@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="container">
+  <!-- Trigger Information -->
+  <div class="row">
+    <div class="col">
+      <h1>{{ trigger.stock_name }}</h1>
+      <p><strong>Created On:</strong> {{ trigger.created_on }}</p>
+    </div>
+  </div>
+
+  <!-- Trigger Summary -->
+  <div class="row">
+    <div class="col">
+      <h2>Summary</h2>
+      <p>{{ trigger.summary | safe }}</p>
+    </div>
+  </div>
+
+ <!-- Comment Form -->
+  <div class="row">
+    <div class="col">
+      <h2>Add a Comment</h2>
+      <form method="post" id="CommentForm">
+        {% csrf_token %}
+        {{ comment_form | crispy }}
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+  <!-- Comments Section -->
+  <div class="row">
+    <div class="col">
+      <h2>Comments</h2>
+      {% for comment in trigger.comments.all %}
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{ comment.author }}</h5>
+          <p class="card-text">{{ comment.body | safe }}</p>
+          <p class="card-text"><small class="text-muted">{{ comment.created_on }}</small></p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+ 
+
+{% endblock %}
+
+{% block extras %}
+<script src="{% static 'js/comments.js' %}"></script>
+{% endblock %}
