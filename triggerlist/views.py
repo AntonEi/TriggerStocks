@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, reverse, redirect
+from django.shortcuts import render, get_object_or_404, reverse, redirect, HttpResponseRedirect
 from django.views import generic, View
 from .models import Trigger, Comment
 from .forms import CommentForm
@@ -15,8 +15,6 @@ def favourite_list(request):
         "triggerlist/favourites.html",
         {"new": new},
     )
-
-
 
 
 @ login_required 
@@ -116,7 +114,7 @@ def comment_delete(request, slug, comment_id):
     else:
         messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
 
-    return HttpResponseRedirect(reverse('trigger_detail', args=[slug]))
+    return redirect('trigger_detail', slug=trigger.slug)
 
 
 

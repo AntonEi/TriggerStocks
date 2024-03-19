@@ -9,8 +9,11 @@
     <div class="row">
         <div class="col">
             <h1>{{ trigger.stock_name }}</h1>
-            <a href="{% url 'favourite_add' trigger.id %}" class="btn btn-outline-primary">Add to Favourites</a>
             <p><strong>Created On:</strong> {{ trigger.created_on }}</p>
+            <from action="{% url 'favourite_add' trigger.id %}" method="POST">
+                <button class="btn waves-effect waves-light" type="submit" name="favourites">Add to Favourites</button>
+            </form>
+            
         </div>
     </div>
 
@@ -26,10 +29,10 @@
     <div class="row">
         <div class="col">
             <h2>Add a Comment</h2>
-            <form method="post" id="CommentForm">
+            <form method="post" id="commentForm">
                 {% csrf_token %}
                 {{ comment_form | crispy }}
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button id="submitButton" type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
     </div>
@@ -42,12 +45,11 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">{{ comment.author }}</h5>
-                <p class="card-text">{{ comment.body | safe }}</p>
+                <p id="comment{{ comment.id }}" class="card-text">{{ comment.body | safe }}</p>
                 <p class="card-text"><small class="text-muted">{{ comment.created_on }}</small></p>
                 {% if user.is_authenticated and comment.author == user %}
-                <button class="btn btn-delete"
-                    comment_id="{{ comment.id }}">Delete</button>
-                <button class="btn btn-edit" comment_id="{{ comment.id }}">Edit</button>
+                <button data-target="deleteModal" class="btn btn-delete modal-trigger" data-comment_id="{{ comment.id }}">Delete</button>
+                <button class="btn btn-edit" data-comment_id="{{ comment.id }}">Edit</button>
                 {% endif %}
             </div>
         </div>
@@ -55,31 +57,19 @@
     </div>
 </div>
 
-<!-- Delete confirmation modal -->
-<div class="modal fade" id="deleteModal" tabindex="-1"
-  aria-labelledby="deleteModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+<!-- Modal Structure -->
+<div id="deleteModal" class="modal">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title"
-          id="deleteModalLabel">Delete comment?</h5>
-        <button type="button" class="btn-close"
-          data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        Are you sure you want to delete your comment?
-        This action cannot be undone.
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary"
-          data-bs-dismiss="modal">Close</button>
-        <a id="deleteConfirm" href="#" class="btn
-          btn-danger">Delete</a>
-      </div>
+      <h4>Are you sure you want to delete your comment?</h4>
+      <p></p>
     </div>
-  </div>
+    <div class="modal-footer">
+        <form id="deleteConfirm" method="DELETE">
+            <button type="button" class="btn btn-secondary modal-close" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+    </div>
 </div>
-
 
 {% endblock %}
 
