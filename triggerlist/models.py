@@ -30,6 +30,8 @@ class Trigger(models.Model):
     website_link = models.CharField(max_length=200,)
     pr_link = models.CharField(max_length=200)
     created_on = models.DateTimeField(auto_now_add=True)
+    favourites = models.ManyToManyField(
+        User, related_name='favourite', default=None, blank=True)
 
     class Meta:
         ordering = ["-created_on"]

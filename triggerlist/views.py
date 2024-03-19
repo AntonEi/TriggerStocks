@@ -4,9 +4,29 @@ from .models import Trigger, Comment
 from .forms import CommentForm
 from django.contrib import messages
 from django.http import HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
+@ login_required
+def favourite_list(request):
+    new = Trigger.objects.filter(favourites=request.user)
+    return render(
+        request,
+        "triggerlist/favourites.html",
+        {"new": new},
+    )
 
+
+
+
+@ login_required 
+def favourite_add(request, trigger_id):
+    trigger = get_object_or_404(Trigger, slug=trigger_id)
+    if trigger.favourites.filter(id=request.user.d).exists():
+        trigger.favourites.remove(request.user)
+    else:
+        trigger.favourites.add(request.user)
+    return HttpResponseRedirect(request.META['HTTP_REFERER'])
 
 
 class TriggerList(generic.ListView):

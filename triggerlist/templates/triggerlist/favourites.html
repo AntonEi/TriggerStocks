@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<h1>Favourite trigger</h1>
+
+<!-- Trigger Information Header -->
+<div class="container-list">
+    <div class="trigger-info">
+      <!-- First Column -->
+      <span class="order order-left"><i class="material-icons icon-style">work</i>Stock Name</span>
+      <!-- Second Column -->
+      <span class="order"><i class="material-icons icon-style">trending_up</i>Trigger-date</span>
+      <!-- Third Column -->
+      <span class="order hidden-on-small-screen"><i class="material-icons icon-style">event_available</i>Added</span>
+      <!-- Fourth Column -->
+      <span class="order"><i class="material-icons icon-style">description</i>Trigger</span>
+    </div>
+  </div>
+  <!-- List of Triggers -->
+  <div class="container-list">
+    <ul class="collapsible expandable">
+      {% for trigger in new %}
+      <!-- List Item -->
+      <li>
+        <!-- Collapsible Header -->
+        <div class="collapsible-header list-bg">
+          <!-- Trigger Information -->
+          <div class="trigger-info">
+            <!-- Stock Name -->
+            <span class="trigger-span">{{ trigger.stock_name }}</span>
+            <!-- Trigger Date -->
+            <span class="trigger-span">{{ trigger.get_trigger_date_display }}</span>
+            <!-- Added Date -->
+            <span class="trigger-span hidden-on-small-screen">{{ trigger.created_on.date }}</span>
+            <!-- Trigger Headline -->
+            <span class="trigger-span">{{ trigger.trigger_headline }}</span>
+          </div>
+          <div><a href="{% url 'favourite_add' trigger.id %}"></a>Remove</div>
+        </div>
+        <div class="collapsible-body">
+          <div class="info-grid">
+            <div class="infotext-grid">
+              <div class="text-padding">
+                <h5 class="summary-header">Summary of the trigger:</h5>
+                <!-- Trigger Summary -->
+                <span class="summary-text">{{ trigger.summary |safe }}</span>
+                <!-- Modal Trigger -->
+                <a href="{% url 'trigger_detail' slug=trigger.slug %}" class="post-link">Comment</a>
+              </div>
+            </div>
+            <!-- Button Grid -->
+            <div class="button-grid">
+              <!-- Padding Div -->
+              <div class="padding-div">
+                <!-- Button to Source -->
+                <a href="{{ trigger.pr_link }}" target="_blank" id="info-button" class="waves-effect waves-light btn"><i
+                    class="material-icons ">work</i>to the source</a>
+                <!-- Button to Company -->
+                <a href="{{ trigger.website_link }}" target="_blank" id="company-button"
+                  class="waves-effect waves-light btn info-button"><i class="material-icons ">event_available</i>to the
+                  company</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+{% endblock %}
+
+{% block extras %}
+<script src="{% static 'js/comments.js' %}"></script>
+{% endblock %}

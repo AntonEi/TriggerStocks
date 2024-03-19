@@ -1,6 +1,7 @@
-from django.shortcuts import render, get_object_or_404
-from .models import sharetrigger  # Change the import to match the model name
+from django.shortcuts import render, get_object_or_404, redirect
+from .models import sharetrigger  
 from django.views.generic import ListView
+from .forms import SharetriggerForm
 
 def share_trigger(request):
     """
@@ -15,9 +16,6 @@ def share_trigger(request):
     )
 
 
-from django.shortcuts import render, redirect
-from .models import sharetrigger
-from .forms import SharetriggerForm
 
 def share_trigger(request):
     """
