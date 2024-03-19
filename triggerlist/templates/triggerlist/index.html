@@ -100,47 +100,11 @@
     </div>
   </div>
 </div>
-<form id="searchForm">
-  <label for="search">Search:</label>
-  <input type="text" id="search" name="search">
-  <button type="submit">Search</button>
-</form>
-
-<div id="searchResults"></div>
 
 <div class="triggerlisth">
   <H2>The TriggerList</H2>
 </div>
-<div class="row">
-  <!-- Dropdown Columns -->
-  <div class="col s3">
-    <div class="input-field col s12">
-      <select multiple>
-        <option value="" disabled selected>Sort by quarter/half-year 2024</option>
-        <option value="1">2024-Q1</option>
-        <option value="2">2024-Q2</option>
-        <option value="3">2024-Q3</option>
-        <option value="4">2024-Q4</option>
-        <option value="5">2024-H1</option>
-        <option value="6">2024-H2</option>
-      </select>
-    </div>
-  </div>
 
-  <div class="col s3">
-    <div class="input-field col s12">
-      <select multiple>
-        <option value="" disabled selected>Sort by quarter/half-year 2025</option>
-        <option value="1">2025-Q1</option>
-        <option value="2">2025-Q2</option>
-        <option value="3">2025-Q3</option>
-        <option value="4">2025-Q4</option>
-        <option value="5">2025-H1</option>
-        <option value="6">2025-H2</option>
-      </select>
-    </div>
-  </div>
-</div>
 
 <!-- Trigger Information Header -->
 <div class="container-list">
@@ -183,7 +147,7 @@
               <!-- Trigger Summary -->
               <span class="summary-text">{{ trigger.summary |safe }}</span>
               <!-- Modal Trigger -->
-              <a href="{% url 'trigger_detail' slug=trigger.slug %}" class="post-link">Comment</a>
+              <a href="{% url 'trigger_detail' slug=trigger.slug %}" class="post-link">READ MORE</a>
             </div>
           </div>
           <!-- Button Grid -->

@@ -1,32 +1,18 @@
-from django.shortcuts import render, get_object_or_404, redirect
-from .models import sharetrigger  
-from django.views.generic import ListView
+from django.shortcuts import render, redirect
+from .models import sharetrigger
 from .forms import SharetriggerForm
 
 def share_trigger(request):
-    """
-    Renders the Sharetrigger page
-    """
-    sharetrigger_instance = sharetrigger.objects.all().order_by('-created_on').first()
-
-    return render(
-        request,
-        "sharetrigger/sharetrigger.html",
-        {"sharetrigger_instance": sharetrigger_instance},  # Update variable name here
-    )
-
-
-
-def share_trigger(request):
-    """
-    Renders the Sharetrigger page
-    """
     if request.method == 'POST':
         form = SharetriggerForm(request.POST)
         if form.is_valid():
-            form.save()
+            sharetrigger_instance = form.save(commit=False)
+            sharetrigger_instance.author = request.user  # Set the author to the current user
+            sharetrigger_instance.save()
             # Redirect to a success page or home page
             return redirect('home')  # Replace 'home' with the name of your home page URL
+        else:
+            print('form invalid')
     else:
         form = SharetriggerForm()
     
@@ -35,5 +21,3 @@ def share_trigger(request):
         "sharetrigger/sharetrigger.html",
         {"form": form},
     )
-
-# Create your views here.

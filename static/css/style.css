@@ -359,6 +359,14 @@ body {
   background-color: #45a049; /* Darker green on hover */
 }
 
+#trigger-detail p, h2, h1 {
+  color: white; 
+}
+
+#comment-color p {
+  color: #3e4a55;
+  width: 300px;
+}
 
 @media (min-width: 1626px) {
   .container-list {
@@ -371,6 +379,7 @@ body {
     height: 400px; /* Adjust height for smaller screens */
     margin-bottom: 20px; /* Adjust margin bottom for spacing */
   }
+
 }
 
 /* End of the info grid */

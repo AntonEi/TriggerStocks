@@ -58,3 +58,28 @@ searchInput.addEventListner("input", e => {
 })
 
 
+$(document).ready(function() {
+    // Function to handle trigger list filtering based on selected year and quarter
+    $('#year-select, #quarter-select').change(function() {
+      var selectedYear = $('#year-select').val();
+      var selectedQuarter = $('#quarter-select').val();
+  
+      // Perform filtering based on selected year and quarter
+      // Example: You can hide/show trigger list items based on the selected options
+      // Here, we're just logging the selected options for demonstration purposes
+      console.log('Selected Year:', selectedYear);
+      console.log('Selected Quarter:', selectedQuarter);
+    });
+  
+    // Function to handle form submission for search
+    $('#searchForm').submit(function(event) {
+      event.preventDefault();
+      var searchTerm = $('#search').val();
+  
+      // Perform search logic here
+      // Example: You can make an AJAX request to fetch search results and display them on the page
+      // Here, we're just logging the search term for demonstration purposes
+      console.log('Search Term:', searchTerm);
+    });
+  });
+  

@@ -74,6 +74,7 @@
             </div>
         </div>
     </nav>
+    
 
     <ul class="sidenav" id="mobile-links">
         <li class="{% if request.path == home_url %}active{% endif %}"><a href="{% url 'home' %}">Home</a></li>
@@ -101,7 +102,19 @@
 
     <main class="flex-shrink-0 main-bg">
 
-
+        <!-- Below from Code Institute's I Think Therefore I Blog project -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    {% for message in messages %}
+                    <div class="card-panel teal lighten-2">
+                        {{ message | safe }}
+                    
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
         {% block content %}
         <!-- Content Goes here -->
         {% endblock content %}

@@ -4,16 +4,16 @@
 
 {% block content %}
 
-<div class="container">
+<div id="trigger-detail" class="container">
     <!-- Trigger Information -->
     <div class="row">
         <div class="col">
             <h1>{{ trigger.stock_name }}</h1>
             <p><strong>Created On:</strong> {{ trigger.created_on }}</p>
-            <from action="{% url 'favourite_add' trigger.id %}" method="POST">
+            <form action="{% url 'favourite_add' trigger.id %}" method="POST">
                 <button class="btn waves-effect waves-light" type="submit" name="favourites">Add to Favourites</button>
-            </form>
-            
+                {% csrf_token %}
+                </form>
         </div>
     </div>
 
@@ -23,6 +23,7 @@
             <h2>Summary</h2>
             <p>{{ trigger.summary | safe }}</p>
         </div>
+
     </div>
 
     <!-- Comment Form -->
@@ -35,33 +36,35 @@
                 <button id="submitButton" type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
+        <div class="col">
+            <h2>Comments</h2>
+            {% for comment in trigger.comments.all %}
+            <div id="comment-color" class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ comment.author }}</h5>
+                    <p id="comment{{ comment.id }}" class="card-text">{{ comment.body | safe }}</p>
+                    <p class="card-text"><small class="text-muted">{{ comment.created_on }}</small></p>
+                    {% if user.is_authenticated and comment.author == user %}
+                    <button data-target="deleteModal" class="btn btn-delete modal-trigger"
+                        data-comment_id="{{ comment.id }}">Delete</button>
+                    <button class="btn btn-edit" data-comment_id="{{ comment.id }}">Edit</button>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
     </div>
+
+
 </div>
 <!-- Comments Section -->
-<div class="row">
-    <div class="col">
-        <h2>Comments</h2>
-        {% for comment in trigger.comments.all %}
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">{{ comment.author }}</h5>
-                <p id="comment{{ comment.id }}" class="card-text">{{ comment.body | safe }}</p>
-                <p class="card-text"><small class="text-muted">{{ comment.created_on }}</small></p>
-                {% if user.is_authenticated and comment.author == user %}
-                <button data-target="deleteModal" class="btn btn-delete modal-trigger" data-comment_id="{{ comment.id }}">Delete</button>
-                <button class="btn btn-edit" data-comment_id="{{ comment.id }}">Edit</button>
-                {% endif %}
-            </div>
-        </div>
-        {% endfor %}
-    </div>
-</div>
+
 
 <!-- Modal Structure -->
 <div id="deleteModal" class="modal">
     <div class="modal-content">
-      <h4>Are you sure you want to delete your comment?</h4>
-      <p></p>
+        <h4>Are you sure you want to delete your comment?</h4>
+        <p></p>
     </div>
     <div class="modal-footer">
         <form id="deleteConfirm" method="DELETE">

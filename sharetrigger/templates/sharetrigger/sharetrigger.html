@@ -1,43 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
+
 <div class="container">
-    <form method="post" class="sharetrigger-form">
+    <form method="post" action="{% url 'sharetrigger' %}" class="sharetrigger-form">
         {% csrf_token %}
 
-        <div class="row">
-            <!-- Fields on the left side -->
-            <div class="col s6">
-                <div class="input-field col s11">
-                    <input type="text" id="id_suggest_stock" name="suggest_stock" class="validate custom-input">
-                    <label for="id_suggest_stock">Suggest Stock</label>
-                </div>
-                <div class="input-field col s11">
-                    <input type="text" id="id_suggest_date" name="suggest_date" class="validate custom-input">
-                    <label for="id_suggest_date">Suggest Date</label>
-                </div>
-                <div class="input-field col s11">
-                    <input type="text" id="id_suggest_pr" name="suggest_pr" class="validate custom-input">
-                    <label for="id_suggest_pr">Suggest PR</label>
-                </div>
-            </div>
-            <!-- Fields on the right side -->
-            <div class="col s6">
-                <div class="input-field col s11">
-                    <textarea id="id_suggest_summary" name="suggest_summary"
-                        class="materialize-textarea validate summary-textarea custom-textarea"></textarea>
-                    <label for="id_suggest_summary">Suggest Summary</label>
-                </div>
-                <div class="input-field col s11">
-                    <input type="text" id="id_more_info" name="more_info" class="validate custom-input">
-                    <label for="id_more_info">More Info</label>
-                </div>
-            </div>
-            
-        </div>
+        {{form.as_p}}
+        <button type="submit" class="btn waves-effect waves-light custom-btn">Submit</button>
     </form>
-    <button type="submit" class="btn waves-effect waves-light custom-btn">Submit</button>
 </div>
-
 
 {% endblock content %}
