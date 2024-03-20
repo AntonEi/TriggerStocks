@@ -46,9 +46,9 @@
                         <p id="comment{{ comment.id }}" class="card-text">{{ comment.body | safe }}</p>
                         <p class="card-text"><small class="text-muted">{{ comment.created_on }}</small></p>
                         {% if user.is_authenticated and comment.author == user %}
-                        <button data-target="deleteModal" class="btn btn-delete modal-trigger"
+                        <button data-target="deleteModal" class="btn btn-delete modal-trigger btn red"
                             data-comment_id="{{ comment.id }}">Delete</button>
-                        <button class="btn btn-edit" data-comment_id="{{ comment.id }}">Edit</button>
+                        <button class="btn btn-edit btn green" data-comment_id="{{ comment.id }}">Edit</button>
                         {% endif %}
                     </div>
                 </div>
@@ -70,7 +70,7 @@
     <div class="modal-footer">
         <form id="deleteConfirm" method="DELETE">
             <button type="button" class="btn btn-secondary modal-close" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-danger">Delete</button>
+            <button type="submit" class="btn btn red">Delete</button>
         </form>
     </div>
 </div>
