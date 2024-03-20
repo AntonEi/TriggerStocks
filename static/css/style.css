@@ -349,6 +349,33 @@ nav ul a{
   color: black; 
 }
 
+.e-trade-btn{
+  background-color: #240c58;
+  color: white;
+}
+
+.e-trade-btn:hover {
+  background-color: #877da1;
+  color: white;
+}
+
+.h-trade-btn{
+  background-color: #00e505;
+  color: white;
+}
+
+.h-trade-btn:hover {
+  background-color: #81f183;
+  color: black;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between; /* Spreads the buttons apart */
+  margin-top: 20px; /* Adjust as needed */
+  width: 100%; /* Ensure buttons stretch across the container */
+}
+
 
 #company-button {
   margin-top: 15px; /* Add margin-top only for company-button */
@@ -402,13 +429,35 @@ nav ul a{
   margin: 0 auto;
 }
 
+/* End share trigger page */
+
 .custom-btn {
   margin-top: 20px;
 }
 
+/* Fav page */
 
+.center-content {
+  text-align: center;
+}
 
+.fav-head h1 {
+  font-family: "Raleway", sans-serif;
+  padding-bottom: 70px;
+}
 
+.center-content p {
+  font-size: 21px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  color: white;
+}
+
+.center-content a{
+  padding: 12px 50px;
+}
+
+/* End fav page */
 /* detail page styling */
 
 
@@ -528,6 +577,11 @@ nav ul a{
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .fav-head h1 {
+    font-size: 36px;
+    padding-bottom: 10px;
   }
 }
 

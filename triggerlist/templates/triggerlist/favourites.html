@@ -3,9 +3,9 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-
-<h1>Favourite trigger</h1>
-
+<div class="fav-head">
+  <h1 class="center-content">Favourite trigger</h1>
+</div>
 <!-- Trigger Information Header -->
 <div class="container-list">
     <div class="trigger-info">
@@ -18,64 +18,73 @@
       <!-- Fourth Column -->
       <span class="order"><i class="material-icons icon-style">description</i>Trigger</span>
     </div>
-  </div>
-  <!-- List of Triggers -->
-  <div class="container-list">
+</div>
+
+<!-- List of Triggers -->
+<div class="container-list">
     <ul class="collapsible expandable">
-      {% for trigger in new %}
-      <!-- List Item -->
-      <li>
-        <!-- Collapsible Header -->
-        <div class="collapsible-header list-bg">
-          <!-- Trigger Information -->
-          <div class="trigger-info">
-            <!-- Stock Name -->
-            <span class="trigger-span">{{ trigger.stock_name }}</span>
-            <!-- Trigger Date -->
-            <span class="trigger-span">{{ trigger.get_trigger_date_display }}</span>
-            <!-- Added Date -->
-            <span class="trigger-span hidden-on-small-screen">{{ trigger.created_on.date }}</span>
-            <!-- Trigger Headline -->
-            <span class="trigger-span">{{ trigger.trigger_headline }}</span>
-          </div>
-          <div></div>
-        </div><form action="{% url 'favourite_add' trigger.id %}" method="POST">
-            <button class="btn waves-effect waves-light" type="submit" name="favourites">Remove</button>
-            {% csrf_token %}
-        </form>
-        <div class="collapsible-body">
-          <div class="info-grid">
-            <div class="infotext-grid">
-              <div class="text-padding">
-                <h5 class="summary-header">Summary of the trigger:</h5>
-                <!-- Trigger Summary -->
-                <span class="summary-text">{{ trigger.summary |safe }}</span>
-                <!-- Modal Trigger -->
-                <a href="{% url 'trigger_detail' slug=trigger.slug %}" class="post-link">Comment</a>
-              </div>
+        {% if new %}
+            {% for trigger in new %}
+            <!-- List Item -->
+            <li>
+                <!-- Collapsible Header -->
+                <div class="collapsible-header list-bg">
+                    <!-- Trigger Information -->
+                    <div class="trigger-info">
+                        <!-- Stock Name -->
+                        <span class="trigger-span">{{ trigger.stock_name }}</span>
+                        <!-- Trigger Date -->
+                        <span class="trigger-span">{{ trigger.get_trigger_date_display }}</span>
+                        <!-- Added Date -->
+                        <span class="trigger-span hidden-on-small-screen">{{ trigger.created_on.date }}</span>
+                        <!-- Trigger Headline -->
+                        <span class="trigger-span">{{ trigger.trigger_headline }}</span>
+                    </div>
+                    <div></div>
+                </div>
+                <form action="{% url 'favourite_add' trigger.id %}" method="POST">
+                    <button class="btn waves-effect waves-light" type="submit" name="favourites">Remove</button>
+                    {% csrf_token %}
+                </form>
+                <div class="collapsible-body">
+                    <div class="info-grid">
+                        <div class="infotext-grid">
+                            <div class="text-padding">
+                                <h5 class="summary-header">Summary of the trigger:</h5>
+                                <!-- Trigger Summary -->
+                                <span class="summary-text">{{ trigger.summary |safe }}</span>
+                                <!-- Modal Trigger -->
+                                <a href="{% url 'trigger_detail' slug=trigger.slug %}" class="post-link">Comment</a>
+                            </div>
+                        </div>
+                        <!-- Button Grid -->
+                        <div class="button-grid">
+                            <!-- Padding Div -->
+                            <div class="padding-div">
+                                <!-- Button to Source -->
+                                <a href="{{ trigger.pr_link }}" target="_blank" id="info-button" class="waves-effect waves-light btn"><i
+                                        class="material-icons ">work</i>to the source</a>
+                                <!-- Button to Company -->
+                                <a href="{{ trigger.website_link }}" target="_blank" id="company-button"
+                                    class="waves-effect waves-light btn info-button"><i class="material-icons ">event_available</i>to the
+                                    company</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+        {% else %}
+            <div class="center-content">
+              <p>No trigger added. Press the button to go to the trigger list.</p>
+              <!-- Button to Trigger List -->
+              <a class="share-btn"
+                        aria-current="page"
+                        href="https://8000-antonei-triggerstocks-tb4psss0aeo.ws-eu110.gitpod.io/#triggerlist"
+                        >Trigger List</a>
             </div>
-            <!-- Button Grid -->
-            <div class="button-grid">
-              <!-- Padding Div -->
-              <div class="padding-div">
-                <!-- Button to Source -->
-                <a href="{{ trigger.pr_link }}" target="_blank" id="info-button" class="waves-effect waves-light btn"><i
-                    class="material-icons ">work</i>to the source</a>
-                <!-- Button to Company -->
-                <a href="{{ trigger.website_link }}" target="_blank" id="company-button"
-                  class="waves-effect waves-light btn info-button"><i class="material-icons ">event_available</i>to the
-                  company</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </li>
-      {% endfor %}
+        {% endif %}
     </ul>
-  </div>
+</div>
 
-{% endblock %}
-
-{% block extras %}
-<script src="{% static 'js/comments.js' %}"></script>
 {% endblock %}

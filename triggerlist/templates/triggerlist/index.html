@@ -84,7 +84,7 @@
         as a guide to facilitate your journey in the investment world. We aim to disseminate valuable information so
         that
         more people can benefit from successful investments.</p>
-
+      <br>
       <!-- Remember section -->
       <p class="purpose-head">REMEMBER:</p>
       <!-- Remember text -->
@@ -147,7 +147,15 @@
               <!-- Trigger Summary -->
               <span class="summary-text">{{ trigger.summary |safe }}</span>
               <!-- Modal Trigger -->
-              <a href="{% url 'trigger_detail' slug=trigger.slug %}" class="post-link">READ MORE</a>
+              <div class="button-container">
+                <!-- "Make Trade" Button -->
+                <a href="{% url 'trigger_detail' slug=trigger.slug %}" class="post-link read-more-btn">Comment</a>
+                <!-- "Read More" Button -->
+                <div>
+                  <a href="https://us.etrade.com/home" class="post-link e-trade-btn" target="_blank">E-Trade</a>
+                  <a href="https://www.avanza.se/" class="post-link h-trade-btn" target="_blank">Robin Hood</a>
+                </div>
+            </div>
             </div>
           </div>
           <!-- Button Grid -->
