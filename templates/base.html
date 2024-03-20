@@ -88,18 +88,42 @@
     
 
     <ul class="sidenav" id="mobile-links">
-        <li class="{% if request.path == home_url %}active{% endif %}"><a href="{% url 'home' %}">Home</a></li>
-        {% if user.is_authenticated %}
+        <li id="nav-link" class="{% if request.path == home_url %}active{% endif %}"><a href="{% url 'home' %}">Home</a>
+        </li>
+        {% if request.path == home_url %}
         <li class="nav-item">
+            <a
+              id="nav-link" class="nav-link"
+              aria-current="page"
+              href="#triggerlist"
+              >TriggerList</a>
+        </li>
+        {% endif %}
+        {% if user.is_authenticated %}
+        
+        <li id="nav-link" class="nav-link {% if request.path == '/favourites/' %}active{% endif %}">
+            <a href="{% url 'favourite_list' %}" id="favorites-link">Favourites</a>
+        </li>
+        <li id="nav-link" class="nav-link">
             <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page"
-                href="{% url 'account_logout' %}">Logout</a>
+                href="{% url 'account_logout' %}" >Logout</a>
+        </li>
+        <li>
+            <p>|</p>
+        </li>
+        <li>
+            <a class="share-btn
+            {% if request.path == sharetrigger %}active{%endif%}"
+            aria-current="page"
+            href="{% url 'sharetrigger' %}"
+            >Sharetrigger</a>
         </li>
         {% else %}
-        <li class="nav-item">
+        <li id="nav-link" class="nav-link">
             <a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"
                 href="{% url 'account_signup' %}">Register</a>
         </li>
-        <li class="nav-item">
+        <li id="nav-link" class="nav-link">
             <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page"
                 href="{% url 'account_login' %}">Login</a>
         </li>
@@ -137,32 +161,27 @@
         <div class="footer-content">
             <div class="footer-section about">
                 <h3>About Us</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis libero quis fringilla viverra.</p>
-                <ul>
-                    <li><a href="#">Our Team</a></li>
-                    <li><a href="#">History</a></li>
-                    <li><a href="#">Testimonials</a></li>
-                </ul>
+                <p>Welcome to TriggerStocks, your go-to platform for intelligent stock triggers and insightful market analysis!</p>
+
             </div>
             <div class="footer-section contact">
                 <h3>Contact Us</h3>
                 <ul>
-                    <li>Email: example@example.com</li>
-                    <li>Phone: +1234567890</li>
-                    <li>Address: 123 Main Street, City, Country</li>
+                    <li>Email: StockTrigger@alltheway.com</li>
                 </ul>
             </div>
             <div class="footer-section social">
                 <h3>Follow Us</h3>
                 <ul>
-                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="https://Facebook.com/" target="_blank"><i class="fab fa-facebook-f" ></i>  Facebook</a></li>
+                    <li><a href="https://twitter.com/Aktietriggers" target="_blank"><i class="fab fa-twitter" ></i>  X</a></li>
+                    <li><a href="https://www.instagram.com/aktietriggers/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            &copy; 2024 Your Website | Designed by You
+            &copy; 2024 TriggerStocks | Designed by Anton Eriksson
         </div>
     </footer>
 
