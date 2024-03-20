@@ -1,14 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
+<div>
+    <div id="share" class="picture">
+        <div>
+            <form method="post" action="{% url 'sharetrigger' %}" class="sharetrigger-form">
+                {% csrf_token %}
 
-<div class="container">
-    <form method="post" action="{% url 'sharetrigger' %}" class="sharetrigger-form">
-        {% csrf_token %}
-
-        {{form.as_p}}
-        <button type="submit" class="btn waves-effect waves-light custom-btn">Submit</button>
-    </form>
+                {{form.as_p}}
+                <button type="submit" class="btn waves-effect waves-light custom-btn">Submit</button>
+            </form>
+        </div>
+    </div>
 </div>
 
 {% endblock content %}

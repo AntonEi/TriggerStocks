@@ -37,33 +37,44 @@
     <nav class="dark-nav">
         <div class="container">
             <div class="nav-wrapper">
-                <a href="#!" class="brand-logo">TriggerStocks</a>
+                <a href="{% url 'home' %}" id="brand-logo" class="brand-logo">TriggerStocks</a>
                 <ul class="right hide-on-med-and-down">
-                    <li class="{% if request.path == home_url %}active{% endif %}"><a href="{% url 'home' %}">Home</a>
+                    <li id="nav-link" class="{% if request.path == home_url %}active{% endif %}"><a href="{% url 'home' %}">Home</a>
                     </li>
+                    {% if request.path == home_url %}
                     <li class="nav-item">
                         <a
-                          class="nav-link
-                          {% if request.path == sharetrigger %}active{%endif%}"
+                          id="nav-link" class="nav-link"
                           aria-current="page"
-                          href="{% url 'sharetrigger' %}"
-                          >Sharetrigger</a>
+                          href="#triggerlist"
+                          >TriggerList</a>
                     </li>
+                    {% endif %}
                     {% if user.is_authenticated %}
                     
-                    <li class="{% if request.path == '/favourites/' %}active{% endif %}">
+                    <li id="nav-link" class="nav-link {% if request.path == '/favourites/' %}active{% endif %}">
                         <a href="{% url 'favourite_list' %}" id="favorites-link">Favourites</a>
                     </li>
-                    <li class="nav-item">
+                    <li id="nav-link" class="nav-link">
                         <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page"
-                            href="{% url 'account_logout' %}">Logout</a>
+                            href="{% url 'account_logout' %}" >Logout</a>
+                    </li>
+                    <li>
+                        <p>|</p>
+                    </li>
+                    <li>
+                        <a class="share-btn
+                        {% if request.path == sharetrigger %}active{%endif%}"
+                        aria-current="page"
+                        href="{% url 'sharetrigger' %}"
+                        >Sharetrigger</a>
                     </li>
                     {% else %}
-                    <li class="nav-item">
+                    <li id="nav-link" class="nav-link">
                         <a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"
                             href="{% url 'account_signup' %}">Register</a>
                     </li>
-                    <li class="nav-item">
+                    <li id="nav-link" class="nav-link">
                         <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page"
                             href="{% url 'account_login' %}">Login</a>
                     </li>
@@ -104,7 +115,7 @@
 
         <!-- Below from Code Institute's I Think Therefore I Blog project -->
         <div class="container">
-            <div class="row">
+            <div id="no-margin" class="row ">
                 <div class="col-md-8 offset-md-2">
                     {% for message in messages %}
                     <div class="card-panel teal lighten-2">
