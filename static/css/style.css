@@ -78,16 +78,10 @@ nav ul a{
 nav ul a:hover{
   color: #f8c21a;
 }
-nav ul li:active{
-  color: #f8c21a;
+nav ul li.active {
+  background-color: rgb(27, 27, 27)!important;
 }
 
-#nav-link :active{
-  color: #f8c21a;
-}
-:active{
-  color: #f8c21a;
-}
 /*  --------------------------------------------------- End navbar style */
 
 .hero {
@@ -134,9 +128,11 @@ nav ul li:active{
 }
 
 .header-content a:hover {
-  background-color: #f8c21a;
+  background-color: #f8c11ac5;
+  border: 0px solid #f8c11ac5;
   color: black;
   font-weight: 600;
+  padding: 16px 70px;
 }
 
 .back-video {
@@ -148,7 +144,6 @@ nav ul li:active{
   width: 100%; /* Set the width to cover the entire viewport */
   height: 100%; /* Set the height to cover the entire viewport */
 }
-
 
 /*  --------------------------------------------------- Start of the "what is a trigger section */
 .what-is {
@@ -249,8 +244,6 @@ nav ul li:active{
 }
 /* ---------------------------------------------------  End of the thead field (stocks, trigger-date...) */
 
-
-
 /* ---------------------------------------------------  Header of the trigger list  */
 .triggerlisth h2{
   color: white;
@@ -263,8 +256,6 @@ nav ul li:active{
   justify-content: center;
   align-items: center;
 }
-
-
 
 .container-list {
   width: 100%; 
@@ -391,7 +382,6 @@ nav ul li:active{
   width: 100%; /* Ensure buttons stretch across the container */
 }
 
-
 #company-button {
   margin-top: 15px; /* Add margin-top only for company-button */
 }
@@ -403,7 +393,6 @@ nav ul li:active{
 /* ---------------------------------------------------  End of button styling */
 
 /* ---------------------------------------------------  share trigger page */
-
 .picture {
   background-image: url('../images/bull.jpg');
   background-size: cover;
@@ -475,8 +464,6 @@ nav ul li:active{
 /* ---------------------------------------------------  End fav page */
 /* ---------------------------------------------------  detail page styling */
 
-
-
 #trigger-detail p, h2, h1 {
   color: white; 
 }
@@ -485,8 +472,6 @@ nav ul li:active{
   color: #3e4a55;
   width: 300px;
 }
-
-
 
 /* --------------------------------------------------- footer styling */
 
@@ -547,9 +532,7 @@ footer {
   width: 100%;
 }
 
-
 /* ---------------------------------------------------  End footer styling */
-
 
 @media (min-width: 1626px) {
   .container-list {
@@ -594,7 +577,6 @@ footer {
     font-size: 50px;
     margin-top: 100px;
   }
-
 }
 
 @media only screen and (max-width: 700px) {
@@ -647,7 +629,6 @@ footer {
   #info-button .material-icons,
   #company-button .material-icons {
     display: none;
-    
     }
 
   #info-button, #company-button {

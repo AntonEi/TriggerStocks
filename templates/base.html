@@ -13,6 +13,9 @@
     <title>TriggerStocks</title>
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="TriggerStocks, Your key to smart investments.">
+    <meta name="keywords" content="TriggerStocks, stock triggers, market analysis, TriggerList, investment decisions">
+
 
     <!-- Google Fonts CSS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,95 +37,100 @@
 
 </head>
 <div class="bc-nav">
+    <!-- Desktop Navigation -->
     <nav class="dark-nav">
         <div class="container">
             <div class="nav-wrapper">
+                <!-- Brand Logo -->
                 <a href="{% url 'home' %}" id="brand-logo" class="brand-logo">TriggerStocks</a>
+                <!-- Desktop Navigation Menu -->
                 <ul class="right hide-on-med-and-down">
-                    <li id="nav-link" class="{% if request.path == home_url %}active{% endif %}"><a href="{% url 'home' %}">Home</a>
+                    <!-- Home Page Link -->
+                    <li id="nav-link" class="{% if request.path == home_url %}active{% endif %}">
+                        <a href="{% url 'home' %}">Home</a>
                     </li>
+                    <!-- Conditional TriggerList Link (Shown only on Home Page) -->
                     {% if request.path == home_url %}
                     <li class="nav-item">
-                        <a
-                          id="nav-link" class="nav-link"
-                          aria-current="page"
-                          href="#triggerlist"
-                          >TriggerList</a>
+                        <a id="nav-link" class="nav-link" aria-current="page" href="#triggerlist">TriggerList</a>
                     </li>
                     {% endif %}
+                    <!-- Favourites Link (Visible to authenticated users) -->
                     {% if user.is_authenticated %}
-                    
                     <li id="nav-link" class="nav-link {% if request.path == '/favourites/' %}active{% endif %}">
                         <a href="{% url 'favourite_list' %}" id="favorites-link">Favourites</a>
                     </li>
+                    <!-- Logout Link (Visible to authenticated users) -->
                     <li id="nav-link" class="nav-link">
                         <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page"
-                            href="{% url 'account_logout' %}" >Logout</a>
+                            href="{% url 'account_logout' %}">Logout</a>
                     </li>
+                    <!-- Divider -->
                     <li>
                         <p>|</p>
                     </li>
+                    <!-- Sharetrigger Link (Visible to authenticated users) -->
                     <li>
-                        <a class="share-btn
-                        {% if request.path == sharetrigger %}active{%endif%}"
-                        aria-current="page"
-                        href="{% url 'sharetrigger' %}"
-                        >Sharetrigger</a>
+                        <a class="share-btn {% if request.path == sharetrigger %}active{% endif %}" aria-current="page"
+                            href="{% url 'sharetrigger' %}">Sharetrigger</a>
                     </li>
                     {% else %}
+                    <!-- Register Link (Visible to non-authenticated users) -->
                     <li id="nav-link" class="nav-link">
                         <a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"
                             href="{% url 'account_signup' %}">Register</a>
                     </li>
+                    <!-- Login Link (Visible to non-authenticated users) -->
                     <li id="nav-link" class="nav-link">
                         <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page"
                             href="{% url 'account_login' %}">Login</a>
                     </li>
                     {% endif %}
                 </ul>
-                <a href="#" data-target="mobile-links" class="sidenav-trigger right"><i
-                        class="material-icons">menu</i></a>
+                <!-- Mobile Navigation Trigger -->
+                <a href="#" data-target="mobile-links" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
             </div>
         </div>
     </nav>
-    
 
+    <!-- Mobile Navigation -->
     <ul class="sidenav" id="mobile-links">
-        <li id="nav-link" class="{% if request.path == home_url %}active{% endif %}"><a href="{% url 'home' %}">Home</a>
+        <!-- Home Page Link -->
+        <li id="nav-link" class="{% if request.path == home_url %}active{% endif %}">
+            <a href="{% url 'home' %}">Home</a>
         </li>
+        <!-- Conditional TriggerList Link (Shown only on Home Page) -->
         {% if request.path == home_url %}
         <li class="nav-item">
-            <a
-              id="nav-link" class="nav-link"
-              aria-current="page"
-              href="#triggerlist"
-              >TriggerList</a>
+            <a id="nav-link" class="nav-link" aria-current="page" href="#triggerlist">TriggerList</a>
         </li>
         {% endif %}
+        <!-- Favourites Link (Visible to authenticated users) -->
         {% if user.is_authenticated %}
-        
         <li id="nav-link" class="nav-link {% if request.path == '/favourites/' %}active{% endif %}">
             <a href="{% url 'favourite_list' %}" id="favorites-link">Favourites</a>
         </li>
+        <!-- Logout Link (Visible to authenticated users) -->
         <li id="nav-link" class="nav-link">
             <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page"
-                href="{% url 'account_logout' %}" >Logout</a>
+                href="{% url 'account_logout' %}">Logout</a>
         </li>
+        <!-- Divider -->
         <li>
             <p>|</p>
         </li>
+        <!-- Sharetrigger Link (Visible to authenticated users) -->
         <li>
-            <a class="share-btn
-            {% if request.path == sharetrigger %}active{%endif%}"
-            aria-current="page"
-            href="{% url 'sharetrigger' %}"
-            >Sharetrigger</a>
+            <a class="share-btn {% if request.path == sharetrigger %}active{% endif %}" aria-current="page"
+                href="{% url 'sharetrigger' %}">Sharetrigger</a>
         </li>
         {% else %}
+        <!-- Register Link (Visible to non-authenticated users) -->
         <li id="nav-link" class="nav-link">
             <a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"
                 href="{% url 'account_signup' %}">Register</a>
         </li>
+        <!-- Login Link (Visible to non-authenticated users) -->
         <li id="nav-link" class="nav-link">
             <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page"
                 href="{% url 'account_login' %}">Login</a>
@@ -130,8 +138,6 @@
         {% endif %}
     </ul>
 </div>
-
-
 
 <body class="d-flex flex-column h-100 main-bg">
 
@@ -144,7 +150,7 @@
                     {% for message in messages %}
                     <div class="card-panel teal lighten-2">
                         {{ message | safe }}
-                    
+
                     </div>
                     {% endfor %}
                 </div>
@@ -161,8 +167,9 @@
         <div class="footer-content">
             <div class="footer-section about">
                 <h3>About Us</h3>
-                <p>Welcome to TriggerStocks, your go-to platform for intelligent stock triggers and insightful market analysis!</p>
-
+                <p>Welcome to TriggerStocks, your go-to platform for intelligent stock triggers and insightful market
+                    analysis!
+                </p>
             </div>
             <div class="footer-section contact">
                 <h3>Contact Us</h3>
@@ -173,9 +180,12 @@
             <div class="footer-section social">
                 <h3>Follow Us</h3>
                 <ul>
-                    <li><a href="https://Facebook.com/" target="_blank"><i class="fab fa-facebook-f" ></i>  Facebook</a></li>
-                    <li><a href="https://twitter.com/Aktietriggers" target="_blank"><i class="fab fa-twitter" ></i>  X</a></li>
-                    <li><a href="https://www.instagram.com/aktietriggers/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li><a href="https://Facebook.com/" target="_blank" aria-label="Facebook"><i
+                                class="fab fa-facebook-f"></i> Facebook</a></li>
+                    <li><a href="https://twitter.com/Aktietriggers" target="_blank" aria-label="Twitter"><i
+                                class="fab fa-twitter"></i> X</a></li>
+                    <li><a href="https://www.instagram.com/aktietriggers/" target="_blank" aria-label="Instagram"><i
+                                class="fab fa-instagram"></i> Instagram</a></li>
 
                 </ul>
             </div>
