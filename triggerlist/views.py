@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, reverse, redirect, HttpResponseRedirect
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
 from .models import Trigger, Comment
 from .forms import CommentForm
@@ -6,6 +6,7 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 # Create your views here.
+
 
 @login_required
 def favourite_list(request):
@@ -17,7 +18,7 @@ def favourite_list(request):
     )
 
 
-@login_required 
+@login_required
 def favourite_add(request, trigger_id):
     trigger = get_object_or_404(Trigger, pk=trigger_id)
     if trigger.favourites.filter(id=request.user.pk).exists():
@@ -32,7 +33,6 @@ def favourite_add(request, trigger_id):
 class TriggerList(generic.ListView):
     queryset = Trigger.objects.all()
     template_name = "triggerlist/index.html"
-
 
 
 def trigger_detail(request, slug):
@@ -98,9 +98,10 @@ def comment_edit(request, slug, comment_id):
             comment.save()
             messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
         else:
-            messages.add_message(request, messages.ERROR, 'Error updating comment!')
+            messages.add_message(request, messages.ERROR, 'Error upd comment!')
 
     return HttpResponseRedirect(reverse('trigger_detail', args=[slug]))
+
 
 def comment_delete(request, slug, comment_id):
     """
@@ -114,7 +115,6 @@ def comment_delete(request, slug, comment_id):
         comment.delete()
         messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
     else:
-        messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
+        messages.add_message(request, messages.ERROR, 'Y delete own comments!')
 
-    return redirect ('trigger_detail', slug=trigger.slug)
-
+    return redirect('trigger_detail', slug=trigger.slug)

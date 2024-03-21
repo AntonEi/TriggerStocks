@@ -55,7 +55,7 @@ body {
   font-weight: 700;
 }
 
-#nav-link, #favorites-link {
+#nav-link1, #favorites-link {
   font-size: 16px;
   font-family: "Raleway", sans-serif;
   font-weight: 400;
@@ -307,10 +307,10 @@ nav ul li.active {
 }
 
 .summary-header {
-  font-size: 25;
+  font-size: 25px;
   font-family: "Nunito", sans-serif;
   font-weight: 600;
-  margin-top: 0;
+  margin-top: 0px;
   color: #38424b;
 }
 

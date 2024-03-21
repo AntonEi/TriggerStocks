@@ -22,7 +22,7 @@ class sharetrigger(models.Model):
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="suggester")
     suggest_stock = models.CharField(max_length=200)
-    suggest_date = models.IntegerField (choices=TRIGGER_DATE, default=0)
+    suggest_date = models.IntegerField(choices=TRIGGER_DATE, default=0)
     suggest_summary = models.TextField()
     more_info = models.CharField(max_length=200)
     suggest_pr = models.CharField(max_length=200)

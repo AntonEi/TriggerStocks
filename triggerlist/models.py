@@ -20,11 +20,11 @@ TRIGGER_DATE = (
 # Create your models here.
 
 
-# The model to add a trigger 
-class Trigger(models.Model): 
+# The model to add a trigger
+class Trigger(models.Model):
     stock_name = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
-    trigger_date = models.IntegerField (choices=TRIGGER_DATE, default=0)
+    trigger_date = models.IntegerField(choices=TRIGGER_DATE, default=0)
     trigger_headline = models.CharField(max_length=200)
     summary = models.TextField()
     website_link = models.CharField(max_length=200,)
@@ -39,7 +39,8 @@ class Trigger(models.Model):
     def __str__(self):
         return self.stock_name
 
-# The model for comments 
+
+# The model for comments
 class Comment(models.Model):
     trigger = models.ForeignKey(
         Trigger, on_delete=models.CASCADE, related_name="comments")
@@ -53,4 +54,3 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"Comment {self.body} by {self.author}"
-
