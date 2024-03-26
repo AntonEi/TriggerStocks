@@ -70,3 +70,34 @@ If incorrect or empty data is added to a form, the form won't submit and a warni
 The database url and secret key are stored in the env.py file to prevent unwanted connections to the database and this was set up before the first push to Github.
 
 Cross-Site Request Forgery (CSRF) tokens were used on all forms throughout this site.
+
+## Features
+
+### Header
+
+![header](ADD pic)
+
+
+**Logo**
+- It features a white logo elegantly crafted with the Raleway font.
+- This logo is positioned in the top left of the navigation bar. The logo is linked to the home page for ease of navigation for the user.
+
+**Navigation Bar**
+
+- The navigation bar is present at the top of every page and includes all links to the various other pages.
+- "When users log in, they'll see the 'Favorites' link and the 'Suggest' button."
+- The options to Sign up or Log in will change to the option to log out once a user has logged in.
+- The navigation bar is fully responsive, collapsing into a hamburger menu when the screen size becomes too small.
+- Hovering over the links will make the links yellow.
+- The navbar is sticky so it will be on the top of the page when you scroll.
+
+![header](Add pic)
+
+### Footer 
+
+![header](Add pic)
+
+- The footer section includes links to Facebook, Instagram and X. It also includes a 'contact us' and a short explination about the site
+- Clicking the links in the footer opens a separate browser tab to avoid pulling the user away from the site.
+
+
