@@ -125,11 +125,31 @@ Cross-Site Request Forgery (CSRF) tokens were used on all forms throughout this 
 
 **Our Purpose**
 
+![header](docs/readme_images/features/what_we_do.png)
+
 This section on the TriggerStocks website articulates our mission and goals. It's aimed at providing investors with insights and information to make informed decisions in the stock market. The objectives are:
 
 - Seize the opportunity and invest in tomorrow's companies today: Identifying upcoming triggers to anticipate market movements.
 - Sharing of Information: Guiding investors with valuable insights for successful investments.
 - Remember: Emphasizing personal responsibility in decisions; TriggerStocks does not offer investment advice.
+
+**TriggerList**
+
+![header](docs/readme_images/features/what_we_do.png)
+
+The TriggerList page displays all triggers, with the most recent triggers at the top.
+
+- Users can find detailed information about each trigger, including:
+  - Stock Name
+  - Trigger Date
+  - Added Date (hidden on small screens)
+  - Trigger Description
+
+- Triggers are presented in a list format, allowing users to easily browse through them.
+- Each trigger item includes a drop down that contains a summary of the trigger and options to:
+  - Comment on the trigger
+  - Access additional resources for trading (e.g., E-Trade, Robin Hood)
+- Links are provided to the source of the trigger information and the company's website for further details.
 
 ### User Account Pages
 
