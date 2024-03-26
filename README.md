@@ -75,7 +75,7 @@ Cross-Site Request Forgery (CSRF) tokens were used on all forms throughout this 
 
 ### Header
 
-![header](ADD pic)
+![header](docs/readme_images/nav-logout.png)
 
 
 **Logo**
@@ -91,11 +91,11 @@ Cross-Site Request Forgery (CSRF) tokens were used on all forms throughout this 
 - Hovering over the links will make the links yellow.
 - The navbar is sticky so it will be on the top of the page when you scroll.
 
-![header](Add pic)
+![header](docs/readme_images/nav-login.png)
 
 ### Footer 
 
-![header](Add pic)
+![footer](docs/readme_images/footer.png)
 
 - The footer section includes links to Facebook, Instagram and X. It also includes a 'contact us' and a short explination about the site
 - Clicking the links in the footer opens a separate browser tab to avoid pulling the user away from the site.
@@ -104,7 +104,7 @@ Cross-Site Request Forgery (CSRF) tokens were used on all forms throughout this 
 
 **Call to Action Section**
 
-![header](add)
+![home page](docs/readme_images/homepage.png)
 
 - The home page features a captivating video showcasing dynamic stock market scenes, setting the stage for an engaging exploration of TriggerStocks.
 - Upon arrival, users are greeted with the bold message "TriggerStocks: Your key to smart investments" overlaid on the video background, emphasizing the site's mission to provide valuable investment insights.
@@ -114,7 +114,7 @@ Cross-Site Request Forgery (CSRF) tokens were used on all forms throughout this 
 
 **What Is A Trigger**
 
-![header](docs/readme_images/features/what_we_do.png)
+![what is a trigger](docs/readme_images/what-is-trigger.png)
 
 - The "What is a trigger?" section offers a comprehensive explanation of the concept, breaking it down into four key components.
 - Firstly, triggers involve the disclosure of information through official channels, such as company reports or press releases, providing insights into future events or outcomes.
@@ -125,7 +125,7 @@ Cross-Site Request Forgery (CSRF) tokens were used on all forms throughout this 
 
 **Our Purpose**
 
-![header](docs/readme_images/features/what_we_do.png)
+![Our Purpose](docs/readme_images/our-purpose.png)
 
 This section on the TriggerStocks website articulates our mission and goals. It's aimed at providing investors with insights and information to make informed decisions in the stock market. The objectives are:
 
@@ -135,7 +135,7 @@ This section on the TriggerStocks website articulates our mission and goals. It'
 
 **TriggerList**
 
-![header](docs/readme_images/features/what_we_do.png)
+![triggerlist closed](docs/readme_images/trigger-list.png)
 
 The TriggerList page displays all triggers, with the most recent triggers at the top.
 
@@ -144,6 +144,8 @@ The TriggerList page displays all triggers, with the most recent triggers at the
   - Trigger Date
   - Added Date (hidden on small screens)
   - Trigger Description
+
+![triggerlist Open](docs/readme_images/triggerlist-open.png)
 
 - Triggers are presented in a list format, allowing users to easily browse through them.
 - Each trigger item includes a drop down that contains a summary of the trigger and options to:
@@ -155,15 +157,16 @@ The TriggerList page displays all triggers, with the most recent triggers at the
 
 **Sign Up**
 
-![header](docs/readme_images/features/signup.png)
+![sign up](docs/readme_images/signup.png)
 
 **Log In**
 
-![header](docs/readme_images/features/login.png)
+![log in](docs/readme_images/signin.png)
 
 **Log Out**
 
-![header](docs/readme_images/features/logout.png)
+![log out](docs/readme_images/signout.png)
+![log out banner](docs/readme_images/signout-banner.png)
 
 - Django allauth was installed and used to create the Sign up, Log in and Log out functionality. 
 - Success messages inform the user if they have logged in/ logged out successfully.
@@ -173,7 +176,7 @@ The TriggerList page displays all triggers, with the most recent triggers at the
 
 **Header And Summary**
 
-![trigger details](docs/readme_images/features/logout.png)
+![trigger details](docs/readme_images/details-summary.png)
 
 The Trigger Detail page provides comprehensive information about a specific trigger.
 
@@ -183,7 +186,7 @@ The Trigger Detail page provides comprehensive information about a specific trig
 
 **comment section** 
 
-![comment](docs/readme_images/features/logout.png)
+![comment](docs/readme_images/comments.png)
 
 The Comment Section allows users to interact by adding comments and viewing existing ones.
 
@@ -195,7 +198,8 @@ The Comment Section allows users to interact by adding comments and viewing exis
 
 ### Favourite Trigger Page
 
-![favepage](docs/readme_images/features/logout.png)
+![favepage](docs/readme_images/fav-0.png)
+![favepage](docs/readme_images/fav-add.png)
 
 The Favourite Trigger Page displays a list of user-selected favourite triggers.
 
@@ -208,10 +212,12 @@ The Favourite Trigger Page displays a list of user-selected favourite triggers.
 
 This summary outlines the key features and functionality of the Favourite Trigger Page, providing users with easy access to their preferred triggers.
 
+![favepage](docs/readme_images/fav-list-1.png)
 
 ### Share Trigger Page
 
-![Share page](docs/readme_images/features/logout.png)
+![Share page](docs/readme_images/sharetrigger.png)
+![Share page](docs/readme_images/sharetrigger-date.png)
 
 The Share Trigger Page allows users to submit new triggers to the platform.
 
@@ -325,3 +331,16 @@ To clone this repository follow the below steps:
 - [Summernote](https://summernote.org/): A WYSIWYG editor to allow users to edit their posts
 - [Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/) used to manage Django Forms materialize
 - [Materialize](https://materializecss.com): CSS Framework for developing responsiveness and styling
+
+## Credits
+    
+- [Stack Overflow](https://stackoverflow.com/)
+- [Materialize](https://materializecss.com)
+- [Pexels](https://www.pexels.com/): All imagery on the site was sourced from Pexels.com
+- [Code Institute - Blog Walkthrough Project](https://github.com/Code-Institute-Solutions/Django3blog)
+
+## Acknowledgments
+
+Many thanks to my mentor Antonio for his support and advice. Thanks to The Code Institute tutoring for helping me out.
+
+Also, many thanks to my fellow student Elin Dalenbäck.
