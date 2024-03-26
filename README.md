@@ -222,3 +222,85 @@ The Share Trigger Page allows users to submit new triggers to the platform.
 The Share Trigger Page provides users with a convenient way to contribute new triggers to the platform, enhancing the community's access to valuable information.
 
 Additionally, the page features a background image of a bull, adding visual interest and reinforcing the financial theme of the platform.
+
+### Future Features
+
+In the future, I aim to implement the following features to enhance the platform:
+
+- **Stock Price Display**: Integrate stock price information for each listed stock, providing users with real-time data to inform their decisions.
+
+- **Graphical Analysis Tools**: Incorporate graphical representations, such as graphs and charts, to visualize stock performance and trends, aiding users in making informed investment decisions.
+
+- **Interactive Forum**: Establish a forum where users can engage in discussions, share insights, and exchange information about stocks, fostering a community-driven approach to investing.
+
+- **Automated Trigger Search**: Develop functionality that autonomously searches for triggers based on predefined criteria, streamlining the process of identifying potential investment opportunities.
+
+These additions aim to enrich the user experience, empowering investors with valuable tools and resources to navigate the stock market effectively.
+
+
+## Deployment - Heroku
+
+To deploy this page to Heroku from its GitHub repository, the following steps were taken:
+
+### Create the Heroku App:
+- Log in to [Heroku](https://dashboard.heroku.com/apps) or create an account.
+- On the main page click the button labelled New in the top right corner and from the drop-down menu select "Create New App".
+- Enter a unique and meaningful app name.
+- Next select your region.
+- Click on the Create App button.
+
+### Attach the Postgres database:
+- In the Resources tab, under add-ons, type in Postgres and select the Heroku Postgres option.
+- Copy the DATABASE_URL located in Config Vars in the Settings Tab.
+
+### Prepare the environment and settings.py file:
+- In your GitPod workspace, create an env.py file in the main directory.
+- Add the DATABASE_URL value and your chosen SECRET_KEY value to the env.py file. 
+- Update the settings.py file to import the env.py file and add the SECRETKEY and DATABASE_URL file paths.
+- Comment out the default database configuration.
+- Save files and make migrations.
+- Add Cloudinary URL to env.py
+- Add the cloudinary libraries to the list of installed apps.
+- Add the STATIC files settings - the url, storage path, directory path, root path, media url and default file storage path.
+- Link the file to the templates directory in Heroku.
+- Change the templates directory to TEMPLATES_DIR
+- Add Heroku to the ALLOWED_HOSTS list the format ['app_name.heroku.com', 'localhost']
+
+### Create files / directories
+- Create requirements.txt file
+- Create three directories in the main directory; media, storage and templates.
+- Create a file named "Procfile" in the main directory and add the following: web: gunicorn project-name.wsgi
+
+### Update Heroku Config Vars
+Add the following Config Vars in Heroku:
+- SECRET_KEY value 
+- CLOUDINARY_URL
+
+### Deploy
+- NB: Ensure in Django settings, DEBUG is False
+- Go to the deploy tab on Heroku and connect to GitHub, then to the required repository. 
+- Scroll to the bottom of the deploy page and either click Enable Automatic Deploys for automatic deploys or Deploy Branch to deploy manually. Manually deployed branches will need re-deploying each time the repo is updated.
+- Click View to view the deployed site.
+
+The site is now live and operational.
+## Forking this repository
+- Locate the repository at this link [TriggerStocks](https://github.com/AntonEi/TriggerStocks).
+- At the top of the repository, on the right side of the page, select "Fork" from the buttons available. 
+- A copy of the repository is now created.
+
+## Cloning this repository
+To clone this repository follow the below steps: 
+
+1. Locate the repository at this link [TriggerStocks](https://github.com/AntonEi/TriggerStocks). 
+2. Under **'Code'**, see the different cloning options, HTTPS, SSH, and GitHub CLI. Click the prefered cloning option, and then copy the link provided. 
+3. Open **Terminal**.
+4. In Terminal, change the current working directory to the desired location of the cloned directory.
+5. Type **'git clone'**, and then paste the URL copied from GitHub earlier. 
+6. Type **'Enter'** to create the local clone. 
+
+## Languages
+
+- Python
+- HTML
+- CSS
+- Javascript
