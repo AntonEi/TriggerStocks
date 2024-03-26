@@ -169,3 +169,56 @@ The TriggerList page displays all triggers, with the most recent triggers at the
 - Success messages inform the user if they have logged in/ logged out successfully.
 
 
+### The Trigger Details
+
+**Header And Summary**
+
+![trigger details](docs/readme_images/features/logout.png)
+
+The Trigger Detail page provides comprehensive information about a specific trigger.
+
+- Users can view details such as the stock name and the date the trigger was created.
+- An option to add the trigger to favorites is available, allowing users to keep track of important triggers.
+- The trigger summary section provides a brief overview of the trigger, allowing users to quickly understand its significance.
+
+**comment section** 
+
+![comment](docs/readme_images/features/logout.png)
+
+The Comment Section allows users to interact by adding comments and viewing existing ones.
+
+- Users can add comments using the provided form, with fields for the author's name and comment body.
+- Existing comments are displayed below the comment form, showing the author's name, comment text, and creation date.
+- Authenticated users have options to edit or delete their own comments using corresponding buttons.
+- A modal confirmation window is provided for deleting comments, ensuring user confirmation before deletion.
+
+
+### Favourite Trigger Page
+
+![favepage](docs/readme_images/features/logout.png)
+
+The Favourite Trigger Page displays a list of user-selected favourite triggers.
+
+- The page header prominently displays "Favourite trigger."
+- Trigger information is organized into columns, including stock name, trigger date, added date, and trigger description.
+- Each trigger is collapsible, showing additional details upon expansion.
+- Users can remove triggers from their favourites list using the provided "Remove" button.
+- For each trigger, a summary of the trigger is provided along with buttons to view comments, access the source, and visit the company's website.
+- If no triggers have been added as favourites, a message encourages users to visit the Trigger List page.
+
+This summary outlines the key features and functionality of the Favourite Trigger Page, providing users with easy access to their preferred triggers.
+
+
+### Share Trigger Page
+
+![Share page](docs/readme_images/features/logout.png)
+
+The Share Trigger Page allows users to submit new triggers to the platform.
+
+- The page features a form where users can input trigger information.
+- The form includes fields for the stock name, trigger date, trigger headline, and trigger summary.
+- Upon completing the form, users can submit the trigger information by clicking the "Submit" button.
+
+The Share Trigger Page provides users with a convenient way to contribute new triggers to the platform, enhancing the community's access to valuable information.
+
+Additionally, the page features a background image of a bull, adding visual interest and reinforcing the financial theme of the platform.
