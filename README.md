@@ -45,3 +45,28 @@ The color palette of the Stock Trigger site is carefully chosen to evoke a sense
 
 ### Fonts
 The Stock Trigger website uses **Quicksand** as its primary font, lending a modern and professional feel to the content. **Raleway** is reserved for headers and larger text, adding emphasis and style to key sections. These fonts work together to create a visually appealing and easily readable experience for users, enhancing the overall design and usability of the site. This font was imported via [Google Fonts](https://fonts.google.com/)
+
+### Wireframes
+
+![ADD HERE]()
+![ADD HERE]()
+
+## Agile Methodology
+
+Github projects was used to manage the development process using an agile approach. Please see link to project board [here](add link here)
+
+## Data Model
+
+Add text and pictures here from the other pc
+
+### User Authentication
+
+- Django's LoginRequiredMixin is used to make sure that any requests to access secure pages by non-authenticated users are redirected to the login page. 
+
+### Form Validation
+If incorrect or empty data is added to a form, the form won't submit and a warning will appear to the user informing them what field raised the error. 
+
+### Database Security
+The database url and secret key are stored in the env.py file to prevent unwanted connections to the database and this was set up before the first push to Github.
+
+Cross-Site Request Forgery (CSRF) tokens were used on all forms throughout this site.
