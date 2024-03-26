@@ -100,4 +100,52 @@ Cross-Site Request Forgery (CSRF) tokens were used on all forms throughout this 
 - The footer section includes links to Facebook, Instagram and X. It also includes a 'contact us' and a short explination about the site
 - Clicking the links in the footer opens a separate browser tab to avoid pulling the user away from the site.
 
+### Home Page
+
+**Call to Action Section**
+
+![header](add)
+
+- The home page features a captivating video showcasing dynamic stock market scenes, setting the stage for an engaging exploration of TriggerStocks.
+- Upon arrival, users are greeted with the bold message "TriggerStocks: Your key to smart investments" overlaid on the video background, emphasizing the site's mission to provide valuable investment insights.
+- A compelling call-to-action encourages users to dive into the world of triggers by exploring the Trigger List, guiding them towards informed investment decisions.
+- With a seamless experience, users are invited to embark on their investment journey with TriggerStocks, where smart investments are just a click away.
+
+
+**What Is A Trigger**
+
+![header](docs/readme_images/features/what_we_do.png)
+
+- The "What is a trigger?" section offers a comprehensive explanation of the concept, breaking it down into four key components.
+- Firstly, triggers involve the disclosure of information through official channels, such as company reports or press releases, providing insights into future events or outcomes.
+- Each trigger is associated with a trigger date, indicating the timing of the event and its potential impact on the market.
+- Identifying triggers presents investment opportunities, allowing investors to analyze companies and make informed decisions.
+- Finally, investor actions in response to triggers influence stock prices, reflecting market sentiments and expectations.
+
+
+**Our Purpose**
+
+This section on the TriggerStocks website articulates our mission and goals. It's aimed at providing investors with insights and information to make informed decisions in the stock market. The objectives are:
+
+- Seize the opportunity and invest in tomorrow's companies today: Identifying upcoming triggers to anticipate market movements.
+- Sharing of Information: Guiding investors with valuable insights for successful investments.
+- Remember: Emphasizing personal responsibility in decisions; TriggerStocks does not offer investment advice.
+
+### User Account Pages
+
+**Sign Up**
+
+![header](docs/readme_images/features/signup.png)
+
+**Log In**
+
+![header](docs/readme_images/features/login.png)
+
+**Log Out**
+
+![header](docs/readme_images/features/logout.png)
+
+- Django allauth was installed and used to create the Sign up, Log in and Log out functionality. 
+- Success messages inform the user if they have logged in/ logged out successfully.
+
 
