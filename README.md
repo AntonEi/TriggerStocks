@@ -30,3 +30,18 @@ picture
   - As a frequent user, I want to quickly bookmark my favorite triggers for easy access later, ensuring I can track them effectively.
   - As a frequent user, I want to explore additional resources such as educational content and trading platform links, enhancing my understanding and trading experience.
   - As a frequent user, I want to receive personalized notifications about important trigger updates, ensuring I never miss critical market events.
+
+
+## Design
+
+### Video
+The captivating video at the top of the Stock Trigger website features a bustling cityscape with skyscrapers and a majestic bridge. This dynamic imagery sets the tone for the site, evoking energy and excitement while mirroring the fast-paced nature of the stock market.
+
+### Image
+In the "Suggest" section, users encounter an impactful image of a bull, symbolizing strength and bullish market sentiment. This visual reinforces the website's focus on identifying opportunities for success in the stock market.
+
+### Colors
+The color palette of the Stock Trigger site is carefully chosen to evoke a sense of professionalism, trustworthiness, and clarity. Utilizing a combination of deep blues, sleek grays, and vibrant accents, the site's colors exude a sense of reliability and sophistication. The primary color scheme consists of shades of navy blue and charcoal gray, complemented by pops of vibrant yellow to draw attention to key elements and calls to action.
+
+### Fonts
+The Stock Trigger website uses **Quicksand** as its primary font, lending a modern and professional feel to the content. **Raleway** is reserved for headers and larger text, adding emphasis and style to key sections. These fonts work together to create a visually appealing and easily readable experience for users, enhancing the overall design and usability of the site. This font was imported via [Google Fonts](https://fonts.google.com/)
