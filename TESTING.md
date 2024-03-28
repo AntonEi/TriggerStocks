@@ -167,7 +167,6 @@ All Python files were run through [Pep8](https://pep8ci.herokuapp.com/#) with no
 | Sign Up button(form valid) | Click                                     | Form submit                                | Pass      |
 | Sign Up button(form valid) | Click                                     | Redirect to home page                      | Pass      |
 | Sign Up button(form valid) | Click                                     | Success message confirming login appears   | Pass      |
-| Sign Up button(form valid) | Click                                     | Success message fades after 3 seconds      | Pass      |
 |                            |                                           |                                            |           |
 | Log in                     |                                           |                                            |           |
 | Sign up link               | Click                                     | Redirect to sign up page                   | Pass      |
@@ -182,9 +181,22 @@ All Python files were run through [Pep8](https://pep8ci.herokuapp.com/#) with no
 | Login button(form valid)   | Click                                     | Form submit                                | Pass      |
 | Login button(form valid)   | Click                                     | Redirect to home page                      | Pass      |
 | Login button(form valid)   | Click                                     | Success message confirming login appears   | Pass      |
-| Login button(form valid)   | Click                                     | Success message fades after 3 seconds      | Pass      |
 |                            |                                           |                                            |           |
 | Log Out Confirmation       |                                           |                                            |           |
 | Logout button              | Click                                     | Redirect to homepage                       | Pass      |
 | Logout button              | Click                                     | Success message confirming log out appears | Pass      |
 | Logout button              | Click                                     | Success message fades after 3 seconds      | Pass      |
+
+## bugs 
+
+### Unfixed bugs:
+
+**Issue:** Inability to Style Buttons Due to Materialize CSS
+Description:
+Despite multiple attempts to apply custom styles to buttons on the website, the desired styling could not be achieved. The presence of Materialize CSS styling appeared to interfere with the custom styling attempts, preventing the buttons from being styled according to the specified CSS rules.
+
+**Impact:**
+The inability to style buttons not only affects the visual consistency and aesthetics of the website but also limits the ability to provide clear visual cues to users for interactive elements. This may lead to confusion or difficulty in navigating the website.
+
+**Resolution:**
+Efforts were made to troubleshoot and resolve the styling issue, including revising CSS selectors, adjusting specificity, and verifying syntax. However, despite these attempts, the interference from Materialize CSS persisted, preventing the buttons from being styled as intended.

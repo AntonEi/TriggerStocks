@@ -48,8 +48,7 @@ The Stock Trigger website uses **Quicksand** as its primary font, lending a mode
 
 ### Wireframes
 
-![ADD HERE]()
-![ADD HERE]()
+![Wireframe](docs/wireframes/wireframe.png)
 
 ## Agile Methodology
 
@@ -57,7 +56,7 @@ Github projects was used to manage the development process using an agile approa
 
 ## Data Model
 
-Add text and pictures here from the other pc
+![Wireframe](docs/readme_images/lucidchart.png)
 
 ### User Authentication
 
