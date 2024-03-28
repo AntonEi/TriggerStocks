@@ -200,3 +200,6 @@ The inability to style buttons not only affects the visual consistency and aesth
 
 **Resolution:**
 Efforts were made to troubleshoot and resolve the styling issue, including revising CSS selectors, adjusting specificity, and verifying syntax. However, despite these attempts, the interference from Materialize CSS persisted, preventing the buttons from being styled as intended.
+
+**Issue with Favicon** 
+The favicon (website icon) does not appear to be loading properly on the website.
