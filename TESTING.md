@@ -132,3 +132,59 @@ All Python files were run through [Pep8](https://pep8ci.herokuapp.com/#) with no
 | Remove fav         | Click                | Will remove the trigger from the Favourite list                                                                  | Pass      |
 | Trigger Content    | Display              | If no triggers are added a link to the triggerlist will show                                                     | Pass      |
 
+### Sharetrigger Page
+
+| Element            | Action               | Expected Result                                                                                                  | Pass/Fail |
+|--------------------|----------------------|------------------------------------------------------------------------------------------------------------------|-----------|
+| Sharetrigger Page  | Access               | If a user tries to access this page (by changing url) without being signed in they are redirected the Login page | Pass      |
+| Sharetrigger Page  | Display              | Suggest stock, date, summary, info and PR are shown                                                              | Pass      |
+| Suggest stock:     | Leave Empty          | On Submit: Warning appears, form won't submit                                                                    | Pass      |
+| Suggest summary:   | Leave Empty          | On Submit: Warning appears, form won't submit                                                                    | Pass      |
+| Suggest info:      | Leave Empty          | On Submit: Warning appears, form won't submit                                                                    | Pass      |
+| Suggest PR:        | Leave Empty          | On Submit: Warning appears, form won't submit                                                                    | Pass      |
+
+### Django All Auth Pages
+| Element                    | Action                                    | Expected Result                            | Pass/Fail |
+|----------------------------|-------------------------------------------|--------------------------------------------|-----------|
+| Sign Up                    |                                           |                                            |           |
+| Log in link                | Click                                     | Redirect to login page                     | Pass      |
+| Username field             | Leave empty                               | On submit: form won't submit               | Pass      |
+| Username field             | Leave empty                               | Error message displays                     | Pass      |
+| Username field             | Insert correct format                     | On submit: form submit                     | Pass      |
+| Username field             | Insert duplicate username                 | On submit: form won't submit               | Pass      |
+| Username field             | Insert duplicate username                 | Error message displays                     | Pass      |
+| Email field                | Insert incorrect format                   | On submit: form won't submit               | Pass      |
+| Email field                | Insert incorrect format                   | Error message displays                     | Pass      |
+| Email field                | Insert correct format                     | On submit: form submit                     | Pass      |
+| Email field                | Leave empty                               | On submit: form submit                     | Pass      |
+| Email field                | Insert duplicate email                    | On submit: form won't submit               | Pass      |
+| Email field                | Insert duplicate email                    | Error message displays                     | Pass      |
+| Password field             | Insert incorrect format                   | On submit: form won't submit               | Pass      |
+| Password field             | Insert incorrect format                   | Error message displays                     | Pass      |
+| Password field             | Passwords don't match                     | On submit: form won't submit               | Pass      |
+| Password field             | Passwords don't match                     | Error message displays                     | Pass      |
+| Password field             | Insert correct format and passwords match | On submit: form submit                     | Pass      |
+| Sign Up button(form valid) | Click                                     | Form submit                                | Pass      |
+| Sign Up button(form valid) | Click                                     | Redirect to home page                      | Pass      |
+| Sign Up button(form valid) | Click                                     | Success message confirming login appears   | Pass      |
+| Sign Up button(form valid) | Click                                     | Success message fades after 3 seconds      | Pass      |
+|                            |                                           |                                            |           |
+| Log in                     |                                           |                                            |           |
+| Sign up link               | Click                                     | Redirect to sign up page                   | Pass      |
+| Username field             | Leave empty                               | On submit: form won't submit               | Pass      |
+| Username field             | Leave empty                               | Error message displays                     | Pass      |
+| Username field             | Insert wrong username                     | On submit: form won't submit               | Pass      |
+| Username field             | Insert wrong username                     | Error message displays                     | Pass      |
+| Password field             | Leave empty                               | On submit: form won't submit               | Pass      |
+| Password field             | Leave empty                               | Error message displays                     | Pass      |
+| Password field             | Insert wrong password                     | On submit: form won't submit               | Pass      |
+| Password field             | Insert wrong password                     | Error message displays                     | Pass      |
+| Login button(form valid)   | Click                                     | Form submit                                | Pass      |
+| Login button(form valid)   | Click                                     | Redirect to home page                      | Pass      |
+| Login button(form valid)   | Click                                     | Success message confirming login appears   | Pass      |
+| Login button(form valid)   | Click                                     | Success message fades after 3 seconds      | Pass      |
+|                            |                                           |                                            |           |
+| Log Out Confirmation       |                                           |                                            |           |
+| Logout button              | Click                                     | Redirect to homepage                       | Pass      |
+| Logout button              | Click                                     | Success message confirming log out appears | Pass      |
+| Logout button              | Click                                     | Success message fades after 3 seconds      | Pass      |

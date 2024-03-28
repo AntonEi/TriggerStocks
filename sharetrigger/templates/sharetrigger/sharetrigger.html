@@ -4,12 +4,17 @@
 <div>
     <div id="share" class="picture">
         <div>
+            {% if user.is_authenticated %}
             <form method="post" action="{% url 'sharetrigger' %}" class="sharetrigger-form">
                 {% csrf_token %}
 
                 {{form.as_p}}
                 <button type="submit" class="btn waves-effect waves-light custom-btn">Submit</button>
             </form>
+            {% else %}
+            <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page"
+            href="{% url 'account_login' %}">Login to send in a Trigger</a>
+            {% endif %}
         </div>
     </div>
 </div>
