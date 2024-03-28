@@ -10,78 +10,63 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var elems2 = document.querySelectorAll('.sidenav-trigger');
     var instances2 = M.Sidenav.init(elems2);
-});
 
- // Initialize side navigation triggers
-document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.sidenav');
-    var instances = M.Sidenav.init(elems, {
+    // Initialize side navigation triggers
+    var elems3 = document.querySelectorAll('.sidenav');
+    var instances3 = M.Sidenav.init(elems3, {
         edge: 'right' // Align mobile sidenav to the right
     });
 
-// For mobile side navigation, align to the right edge of the screen
-    var elems2 = document.querySelectorAll('.sidenav-trigger');
-    var instances2 = M.Sidenav.init(elems2);
-});
+    // For mobile side navigation, align to the right edge of the screen
+    var elems4 = document.querySelectorAll('.sidenav-trigger');
+    var instances4 = M.Sidenav.init(elems4);
 
-document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.collapsible');
+    var elems5 = document.querySelectorAll('.collapsible');
     var options = {
         accordion: false, // Set to true for accordion style
-        onOpenStart: function() {
-        }
+        onOpenStart: function() {}
     };
-    var instances = M.Collapsible.init(elems, options);
-});
+    var instances5 = M.Collapsible.init(elems5, options);
 
+    var elems6 = document.querySelectorAll('select');
+    var instances6 = M.FormSelect.init(elems6);
 
+    var elems7 = document.querySelectorAll('.modal');
+    var instances7 = M.Modal.init(elems7);
 
-
-// Dropdown code
-document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('select');
-    var instances = M.FormSelect.init(elems);
-  });
-// comment drop up
-  document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.modal');
-    var instances = M.Modal.init(elems);
-});
-
-searchInput.addEventListner("input", e => {
-    const value = e.target.value.toLoweCase()
-    users.forEach(user => {
-        const isVisible =
-            user.name.toLoweCase().includes(value)
-        user.element.classList.toggle("hide", !isVisible)
-    })
-})
-
-
-$(document).ready(function() {
-    // Function to handle trigger list filtering based on selected year and quarter
-    $('#year-select, #quarter-select').change(function() {
-      var selectedYear = $('#year-select').val();
-      var selectedQuarter = $('#quarter-select').val();
-  
-      // Perform filtering based on selected year and quarter
-      // Example: You can hide/show trigger list items based on the selected options
-      // Here, we're just logging the selected options for demonstration purposes
-      console.log('Selected Year:', selectedYear);
-      console.log('Selected Quarter:', selectedQuarter);
+    var searchInput = document.querySelector('#search');
+    var users = Array.from(document.querySelectorAll('.user'));
+    searchInput.addEventListener("input", function(e) {
+        var value = e.target.value.toLowerCase();
+        users.forEach(function(user) {
+            var isVisible = user.textContent.toLowerCase().includes(value);
+            user.classList.toggle("hide", !isVisible);
+        });
     });
-  
-    // Function to handle form submission for search
-    $('#searchForm').submit(function(event) {
-      event.preventDefault();
-      var searchTerm = $('#search').val();
-  
-      // Perform search logic here
-      // Example: You can make an AJAX request to fetch search results and display them on the page
-      // Here, we're just logging the search term for demonstration purposes
-      console.log('Search Term:', searchTerm);
+
+    // jQuery Code
+    $(document).ready(function() {
+        // Function to handle trigger list filtering based on selected year and quarter
+        $('#year-select, #quarter-select').change(function() {
+            var selectedYear = $('#year-select').val();
+            var selectedQuarter = $('#quarter-select').val();
+
+            // Perform filtering based on selected year and quarter
+            // Example: You can hide/show trigger list items based on the selected options
+            // Here, we're just logging the selected options for demonstration purposes
+            console.log('Selected Year:', selectedYear);
+            console.log('Selected Quarter:', selectedQuarter);
+        });
+
+        // Function to handle form submission for search
+        $('#searchForm').submit(function(event) {
+            event.preventDefault();
+            var searchTerm = $('#search').val();
+
+            // Perform search logic here
+            // Example: You can make an AJAX request to fetch search results and display them on the page
+            // Here, we're just logging the search term for demonstration purposes
+            console.log('Search Term:', searchTerm);
+        });
     });
-  });
-  
-
-
+});

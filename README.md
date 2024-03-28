@@ -4,7 +4,7 @@ TriggerStocks is a web application designed to simplify the process of staying i
 
 The live link can be found here - [TriggerStocks](https://stocktriggers-dffa3b7c370b.herokuapp.com/)
 
-picture
+![site](docs/readme_images/triggerstocks.png)
 
 
 ## Site Owner Goals

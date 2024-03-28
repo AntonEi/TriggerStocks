@@ -5,7 +5,7 @@
 {% block content %}
 
 <div class="hero">
-  <video autoplay loop muted plays-inline class="back-video">
+  <video autoplay loop muted class="back-video">
     <source src="{% static 'images/header-video.mp4' %}" type="video/mp4">
   </video>
 
@@ -64,21 +64,21 @@
 
 <!-- Our purpose section -->
 <div class="container">
-  <div class="row">
-    <div id="our-purpose" class="col s12 col l6">
+  <div id="our-purpose" class="row ">
+    <div class="col s12 col l6 our-purpose">
       <!-- Purpose Heading -->
-      <h3>Seize the opportunity and invest in tomorrow's companies today.</h3>
+      <h3 class="white-text">Seize the opportunity and invest in tomorrow's companies today.</h3>
     </div>
-    <div id="our-purpose" class="col s12 col l6">
+    <div class="col s12 col l6 our-purpose ">
       <!-- Purpose section -->
-      <p class="purpose-head">OUR PURPOSE:</p>
+      <p class="purpose-head white-text">OUR PURPOSE:</p>
       <!-- Purpose text -->
       <br>
-      <p><em>- Anticipate the Future:</em> We strive to identify and present upcoming triggers that may impact
+      <p class="white-text"><em>- Anticipate the Future:</em> We strive to identify and present upcoming triggers that may impact
         companies' value,
         providing investors with the opportunity to anticipate and adapt to market movements.</p>
       <br>
-      <p><em>- Sharing of Information:</em> We understand that navigating the stock market can be challenging. Our
+      <p class="white-text"><em>- Sharing of Information:</em> We understand that navigating the stock market can be challenging. Our
         vision is to
         serve
         as a guide to facilitate your journey in the investment world. We aim to disseminate valuable information so
@@ -86,14 +86,14 @@
         more people can benefit from successful investments.</p>
       <br>
       <!-- Remember section -->
-      <p class="purpose-head">REMEMBER:</p>
+      <p class="purpose-head white-text">REMEMBER:</p>
       <!-- Remember text -->
       <br>
-      <p><em>- Personal Responsibility:</em> Investments always involve risks. Decisions should be made with care and
+      <p class="white-text"><em>- Personal Responsibility:</em> Investments always involve risks. Decisions should be made with care and
         based on
         individual analysis and risk tolerance</p>
       <br>
-      <p><em>- No Investment Advice</em>: We do not provide personal investment advice or recommendations. AktieTriggers
+      <p class="white-text"><em>- No Investment Advice</em>: We do not provide personal investment advice or recommendations. AktieTriggers
         is a
         platform
         for information dissemination.</p>
@@ -145,7 +145,7 @@
             <div class="text-padding">
               <h5 class="summary-header">Summary of the trigger:</h5>
               <!-- Trigger Summary -->
-              <span class="summary-text">{{ trigger.summary |safe }}</span>
+              <div class="summary-text">{{ trigger.summary |safe }}</div>
               <!-- Modal Trigger -->
               <div class="button-container">
                 <!-- "Make Trade" Button -->
@@ -159,15 +159,15 @@
             </div>
           </div>
           <!-- Button Grid -->
-          <div class="button-grid">
+          <div  class="button-grid">
             <!-- Padding Div -->
             <div class="padding-div">
               <!-- Button to Source -->
-              <a href="{{ trigger.pr_link }}" target="_blank" id="info-button" class="waves-effect waves-light btn"><i
+              <a href="{{ trigger.pr_link }}" target="_blank"  class="waves-effect btn waves-light info-button"><i
                   class="material-icons ">work</i>to the source</a>
               <!-- Button to Company -->
-              <a href="{{ trigger.website_link }}" target="_blank" id="company-button"
-                class="waves-effect waves-light btn info-button"><i class="material-icons ">event_available</i>to the
+              <a href="{{ trigger.website_link }}" target="_blank" 
+                class="waves-effect waves-light btn company-button"><i class="material-icons ">event_available</i>to the
                 company</a>
             </div>
           </div>
@@ -178,9 +178,11 @@
   </ul>
 </div>
 
-<!-- index.html content ends here -->
-{% endblock %}
+
+
 
 {% block extras %}
 <script src="{% static 'js/comments.js' %}"></script>
+{% endblock %}
+<!-- index.html content ends here -->
 {% endblock %}

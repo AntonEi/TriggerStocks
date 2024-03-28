@@ -55,7 +55,17 @@ body {
   font-weight: 700;
 }
 
-#nav-link1, #favorites-link {
+#nav-link1,
+#favorites-link,
+#nav-link2,
+#nav-link3,
+#nav-link4,
+#nav-link5,
+#nav-link6,
+#nav-link7,
+#nav-link8,
+#nav-link9,
+#nav-link10 {
   font-size: 16px;
   font-family: "Raleway", sans-serif;
   font-weight: 400;
@@ -180,10 +190,14 @@ nav ul li.active {
 /*  --------------------------------------------------- End of the "what is a trigger section */
 
 /*  --------------------------------------------------- Start of our purpose section */
-#our-purpose {
-  color: #e9e9e9;
-  text-align: left;
-  font-family: "Raleway", sans-serif;
+#our-purpose .white-text {
+  color: #e9e9e9 !important;
+}
+
+#our-purpose .our-purpose {
+  color: #e9e9e9 !important;
+  text-align: left!important;
+  font-family: "Raleway", sans-serif!important;
 }
 .purpose-head{
   font-weight: bold;
@@ -191,12 +205,12 @@ nav ul li.active {
   font-family: "Raleway", sans-serif;
 }
 
-#our-purpose h3{
-  font-size: 28px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  line-height: 44px;  
-  text-align: center;
+#our-purpose .our-purpose h3 {
+  font-size: 28px!important;
+  font-weight: 700!important;
+  letter-spacing: 1px!important;
+  line-height: 44px!important;  
+  text-align: center!important;
 }
 
 .col.l6 {
@@ -207,12 +221,12 @@ nav ul li.active {
   height: 700px;
 }
 
-#our-purpose col.l6 h3{
-  font-size: 36px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  line-height: 44px;  
-  text-align: center;
+#our-purpose .our-purpose col.l6 h3{
+  font-size: 36px!important;
+  font-weight: 700!important;
+  letter-spacing: 1px!important;
+  line-height: 44px!important;  
+  text-align: center!important;
 }
 /*  --------------------------------------------------- End of our purpose section */
 
@@ -326,15 +340,15 @@ nav ul li.active {
   text-align: center; /* Ensures text is centered */
 }
 
-#info-button, #company-button {
-  background-color: #f8c21a;
-  height: 60px;
-  color: black;
-  border-radius: 15px;
-  font-family: "Nunito", sans-serif;
-  font-size: 18px;
-  font-weight: 600;
-  width: 240px;
+.button-grid .padding-div .company-button, .button-grid .padding-div .info-button{
+  background-color: #f8c21a !important;
+  height: 60px !important;
+  color: black !important;
+  border-radius: 15px !important;
+  font-family: "Nunito", sans-serif !important;
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  width: 240px !important;
 }
 
 .post-link {
@@ -385,10 +399,10 @@ nav ul li.active {
 #company-button {
   margin-top: 15px; /* Add margin-top only for company-button */
 }
-#info-button i, #company-button i {
-  margin-right: 15px; /* Increase the space between the icon and the text */
-  margin-top: 10px;
-  border-radius: 15px;
+.info-button i, .company-button i {
+  margin-right: 15px !important; /* Increase the space between the icon and the text */
+  margin-top: 10px !important;
+  border-radius: 15px !important;
 }
 /* ---------------------------------------------------  End of button styling */
 
@@ -473,9 +487,14 @@ nav ul li.active {
   width: 300px;
 }
 
-.textarea {
+#comment-color textarea{
   color: white!important;
 }
+
+#commentForm {
+  background-color: white;
+}
+
 
 /* --------------------------------------------------- footer styling */
 
@@ -677,5 +696,3 @@ footer {
     padding: 14px 45px;
   }
 }
-
-

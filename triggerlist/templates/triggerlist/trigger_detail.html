@@ -21,7 +21,7 @@
     <div class="row">
         <div class="col">
             <h2>Summary</h2>
-            <p>{{ trigger.summary | safe }}</p>
+            <div>{{ trigger.summary | safe }}</div>
         </div>
 
     </div>
@@ -31,16 +31,17 @@
         <div class="row comment-form">
             <div class="col">
                 <h2>Add a Comment</h2>
-                <form method="post" id="commentForm">
+                <form method="post" id="commentForm" style="
+                background-color: white;">
                     {% csrf_token %}
                     {{ comment_form | crispy }}
                     <button id="submitButton" type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
-            <div class="col">
+            <div class="col" id="comment-color">
                 <h2>Comments</h2>
                 {% for comment in trigger.comments.all %}
-                <div id="comment-color" class="card">
+                <div  class="card">
                     <div class="card-body">
                         <h5 class="card-title">{{ comment.author }}</h5>
                         <p id="comment{{ comment.id }}" class="card-text">{{ comment.body | safe }}</p>
@@ -68,7 +69,7 @@
         <p></p>
     </div>
     <div class="modal-footer">
-        <form id="deleteConfirm" method="DELETE">
+        <form id="deleteConfirm">
             <button type="button" class="btn btn-secondary modal-close" data-dismiss="modal">Close</button>
             <button type="submit" class="btn btn red">Delete</button>
         </form>
@@ -78,8 +79,10 @@
 
 
 
-{% endblock %}
+
 
 {% block extras %}
 <script src="{% static 'js/comments.js' %}"></script>
+{% endblock %}
+
 {% endblock %}
